@@ -35,7 +35,7 @@ include("layout/_header.php");
 <div class="control-group">
   <label class="control-label" for="giris"></label>
   <div class="controls">
-    <button id="giris" name="giris" class="btn btn-danger">Giriş </button>
+    <button id="giris" name="giris" class="btn btn-primary">Giriş </button>
   </div>
 </div>
 
