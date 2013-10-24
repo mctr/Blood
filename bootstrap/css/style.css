@@ -1,0 +1,88 @@
+﻿#survey_title {
+    font-size: 19px;
+	padding: 5px 10px;
+	background: #f8f8f8;
+	text-align:center;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 0px 3px 2px #d6d6d6;
+	-moz-box-shadow: 0px 3px 2px #d6d6d6;
+	-o-box-shadow: 0px 3px 2px #d6d6d6;
+	-ms-box-shadow: 0px 3px 2px #d6d6d6;
+	box-shadow: 0px 3px 2px #d6d6d6;
+	color: #575757;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	line-height: 1.5em;
+	border: 1px solid silver; 
+}
+
+#survey_body {
+	padding: 20px 20px 20px 40px;
+	font-size: 13px;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 0px 3px 2px #d6d6d6;
+	-moz-box-shadow: 0px 3px 2px #d6d6d6;
+	-o-box-shadow: 0px 3px 2px #d6d6d6;
+	-ms-box-shadow: 0px 3px 2px #d6d6d6;
+	box-shadow: 0px 3px 2px #d6d6d6;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	line-height: 1.5em;
+	border: 1px solid silver;
+	background:#f1f2f3;
+}
+
+body {
+    background-image:[./bootstrap/img/ecailles.png];
+}
+
+#top_header {
+	text-align:center;
+	margin: 100px 200px auto ;
+	border: 1px solid silver;
+	background:#f2eedd;
+	padding: 5px;
+	font-size: 21px;
+	font-family: 'Open Sans', 'Helvetica', 'sans-serif';
+	line-height: 1.5em;
+	box-shadow:2px 2px 2px #f1f1f1;		
+		-webkit-box-shadow:2px 2px 2px #f1f1f1;
+		-moz-box-shadow:2px 2px 2px #f1f1f1;
+}
+
+
+
+#login 
+{
+    background-color:White;
+	margin: 20px 250px;
+	/*position:static;*/
+	padding:30px;
+	border: 1px solid silver;
+	text-align:center;
+	/*background-color:white;*/
+	font-size: 15px;
+	box-shadow:1px 1px 1px silver;
+		-webkit-box-shadow:1px 1px 1px silver;
+		-moz-box-shadow:1px 1px 1px silver;
+}
+
+.main 
+{
+    min-height: 500px;
+    margin-top: 60px;
+}
+#footer {
+	padding: 20px 0;
+	margin-top: 50px;
+	background-color: white; //#000000;
+}
+#footer a {
+	color: black;
+}
+
+#hatalar 
+{
+    text-align:center;
+    /*text-decoration:underline;*/
+    font-size:18px;
+    color:red;
+}
