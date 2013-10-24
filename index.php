@@ -29,7 +29,7 @@ include("layout/_header.php");
 		<img src="bootstrap/img/survey.png" alt="">
 		<h3>Bla Bla Bla</h3>
 		<p>Olaylar Olaylar</p>
-		<center><a href="#" class="btn btn-primary">Donör Olmak İstiyorum</a></center>
+		<center><a href="#" class="btn btn-primary">Donör Sorgula</a></center>
 		</div>	
 	
 		
@@ -37,7 +37,7 @@ include("layout/_header.php");
 		<img src="bootstrap/img/survey.png" alt="">
 		<h3>Bla Bla Bla</h3>
 		<p>Olaylar Olaylar</p>
-		<center><a href="#" class="btn btn-primary">Donör Olmak İstiyorum</a></center>
+		<center><a href="#" class="btn btn-primary">Kayıtlı Kuruluşlar</a></center>
 		</div>
 	</ul>
 	</div>

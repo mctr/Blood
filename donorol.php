@@ -11,7 +11,7 @@ include("layout/_header.php");
 <!-- Select Basic -->
 <div class="span6 offset4">
 <div class="control-group">
-  <label class="control-label" for="selectbasic">Kan Grubu (*)</label>
+  <label class="control-label" for="selectbasic">Kan Grubu (*) :</label>
   <div class="controls">
     <select id="selectbasic" name="selectbasic" class="input-large">
       <option>A Rh(+)</option>
@@ -28,7 +28,7 @@ include("layout/_header.php");
 
 <!-- Text input-->
 <div class="control-group">
-  <label class="control-label" for="tcno">Tc Kimlik Numarası (*)</label>
+  <label class="control-label" for="tcno">Tc Kimlik Numarası (*) :</label>
   <div class="controls">
     <input id="tcno" name="tcno" placeholder="" class="input-large" type="text">
     
@@ -127,6 +127,7 @@ include("layout/_header.php");
 </div>
 </div>
 </div>
+
 
 <?php
 include('layout/_footer.php');
