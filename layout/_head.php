@@ -18,7 +18,7 @@
 			padding-top: 60px;
 		}
 		body {
-			background-image : url(./bootstrap/img/arka11.png)
+			background-image : url(./bootstrap/img/arka6.png)
 		}
     </style>
   </head>

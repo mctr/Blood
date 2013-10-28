@@ -29,7 +29,7 @@
         <b class="caret"></b>
       </a>
     <ul class="dropdown-menu">
-      <li><a href="bireysel_login.php">Bireysel Giriş</a></li>
+      <li><a href="donorlogin.php">Bireysel Giriş</a></li>
       <li><a href="kurum_login.php">Kurum Girişi</a></li>
       <li><a href="login.php">Yönetici Girişi</a></li>
     </ul>
