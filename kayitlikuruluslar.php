@@ -3,8 +3,8 @@ include("layout/_head.php");
 include("layout/_header.php");
 ?>
 
-<legend>Kurum Ve Kuruluşlar
-<div class="pull-right"><a href="login.php" class="btn btn-primary">Yeni Kurum Kaydı</a></div>
+<legend>Kayıtlı Kurum Ve Kuruluşlar
+<div class="pull-right"><a href="kurumekle.php" class="btn btn-primary">Yeni Kurum Kaydı</a></div>
 </legend>
 <br>
 <table class="table table-condensed">

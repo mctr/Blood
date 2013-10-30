@@ -22,11 +22,13 @@
 -->	
 <script src="/bootstrap/js/jquery.js"></script>
 <script src="/bootstrap/js/dropdowns.js"></script>
+<script src="/bootstrap/js/bootstrap-tab.js"></script>
 
  <script src="http://code.jquery.com/jquery.js"></script>
  
 <script src="http://twitter.github.io/bootstrap/2.3.2/js/jquery.js"></script>
 <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+<script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tab.js"></script>
 <!--
 <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <script src="http://twitter.github.io/bootstrap/2.3.2/js/jquery.js"></script>

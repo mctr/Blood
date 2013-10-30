@@ -1,7 +1,12 @@
+
+<?php
+include("config.php");
+?>
+
 <?php
 	//Veritabanı Baglantısı
-	
-	$dsn = "mysql:host=localhost;dbname=anket";
+	//~ 
+	$dsn = "mysql:host=localhost;dbname=Blood";
 	$user = "root";
 	$password = "";
  
@@ -10,7 +15,33 @@
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}
-
+	
+	if($_POST['parola'] == $_POST['parolatekrar'])
+	{
+		$db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES ('$_POST[ad]', '$_POST[soyad]', '$_POST[email]', '$_POST[parola]', '$_POST[telno]', 0)");
+		
+		//~ $id = $db->lastInsertId();
+		//~ echo 'Yeni eklenen üyenin IDsi: ' . $id;
+	}
+	else
+	{
+		echo 'Yeni kayıt eklerken bir hata meydana geldi.';
+	}
+	
+	
+	
+	//~ if ($_POST['parola'] == $_POST['parolatekrar'])
+	//~ {
+		//~ echo "selam".$_POST['ad']."<br>";
+		//~ echo "selam".$_POST['soyad']."<br>";
+		//~ echo "selam".$_POST['email']."<br>";
+		//~ echo "selam".$_POST['telno']."<br>";
+	//~ }
+	//~ else
+	//~ {
+		//~ echo "WARNING : parolalar farklı olamaz."
+	//~ 
+	//~ }	
 	//////////////////////////
 	// Veritabanındaki bilgileri listelemek
 	
@@ -58,23 +89,33 @@
 	
 	
 	/////////////////////////////////////////
-	if($sorgu = $db->query('SELECT * FROM users')) {
- 
-		foreach($sorgu as $row)
-		{
-			echo $row['email'] . '<br/>';
-		}
-	}
+
+	//~ if($sorgu = $db->query('SELECT * FROM users')) {
+ //~ 
+		//~ foreach($sorgu as $row)
+		//~ {
+			//~ echo $row['email'] . '<br/>';
+		//~ }
+	//~ }
 	
 	////////////////////////////////
 	
-	$email = DB::getVar('SELECT email FROM users WHERE id = 1 LIMIT 1');
- 
-	echo 'Selam ' . $email;
- 
-	// Ya da toplam kullanıcı sayısı
-	$count = DB::getVar('SELECT COUNT(id) FROM users');
+	//~ $email = DB::getVar('SELECT email FROM users WHERE id = 1 LIMIT 1');
+ //~ 
+	//~ echo 'Selam ' . $email;
+ //~ 
+	//~ // Ya da toplam kullanıcı sayısı
+	//~ $count = DB::getVar('SELECT COUNT(id) FROM users');
+	//~ 
+	//~ echo 'Toplam üye sayımız ' . $count;
 	
-	echo 'Toplam üye sayımız ' . $count;
-
+	
+	//~ if $_POST['parola'] == $_POST['parolatekrar'] {
+		//~ $query = $db->prepare('INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES (?, ?, ?, ?, ?, 2)');
+		//~ $query = $db->execute(array($_POST['ad'], $_POST['soyad'], $_POST['email'], $_POST['parola'], $_POST['telno']));	 
+		//~ if ($sorgu = $db->guery('INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) values ('.$_POST['ad'].','.$_POST['soyad'].','.$_POST['email'].','.$_POST['parola'].','.$_POST['telno'].', 0')')) {
+			//~ echo "Başarıyla Eklendi.."
+		//~ }
+	//~ 
+	//~ }
 ?>

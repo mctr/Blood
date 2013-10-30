@@ -1,26 +1,53 @@
 <?php
 include("layout/_head.php");
 include("layout/_header.php");
+include("config.php");
+?>
+
+<?php
+	if($_GET[yoneticiekle] == 1)
+	{
+		if(!isset($_POST[email]) || empty($_POST[email])){
+				$hata = "Tüm alanları doldurmanız gerekiyor";
+		}
+		if(!isset($_POST[parola]) || empty($_POST[parola])){
+				$hata = "Tüm alanları doldurmanız gerekiyor";
+		}
+		if(!isset($_POST[parolatekrar]) || empty($_POST[parolatekrar])){
+				$hata = "Tüm alanları doldurmanız gerekiyor";
+		}
+		if (!$hata){
+			if($_POST['parola'] == $_POST['parolatekrar']){
+				
+				$db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES ('$_POST[ad]', '$_POST[soyad]', '$_POST[email]', '$_POST[parola]', '$_POST[telno]', 0)");
+				
+				$mesaj = "Kayıt başarıyla gerçekleşti.";
+				//~ $id = $db->lastInsertId();
+				//~ echo 'Yeni eklenen üyenin IDsi: ' . $id;
+			}
+		}
+		
+	}
+
 ?>
 
 	<br>
 	<br>
 	<div class="span6 offset3">
-	<form class="form-horizontal">
+<form class="form-horizontal" action="yoneticiekle.php?yoneticiekle=1" method="post">
 <fieldset>
-
-
-<form class="form-horizontal">
-<fieldset>
-
-<form class="form-horizontal">
-<fieldset>
-
-
 
 <!-- Form Name -->
 <legend> Yönetici Ekle</legend>
 
+<?php
+	if($hata){
+		echo "<p><center class='alert alert-error'>{$hata}</center></p>";		
+	}
+	if($mesaj){
+		echo "<p><center class='alert alert-success'>{$mesaj}</center></p>";
+	}
+?>
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label" for="ad">Ad (*)</label>
@@ -61,7 +88,7 @@ include("layout/_header.php");
 <div class="control-group">
   <label class="control-label" for="parola">Parola (*)</label>
   <div class="controls">
-    <input id="parola" name="parola" placeholder="" class="input-large" type="text">
+    <input id="parola" name="parola" placeholder="" class="input-large" type="password">
     
   </div>
 </div>
@@ -70,7 +97,7 @@ include("layout/_header.php");
 <div class="control-group">
   <label class="control-label" for="parolatekrar">Parola Tekrar (*)</label>
   <div class="controls">
-    <input id="parolatekrar" name="parolatekrar" placeholder="" class="input-large" type="text">
+    <input id="parolatekrar" name="parolatekrar" placeholder="" class="input-large" type="password">
     
   </div>
 </div>
@@ -79,12 +106,11 @@ include("layout/_header.php");
 <div class="control-group">
   <label class="control-label" for="yoneticiekle"></label>
   <div class="controls">
-    <button id="yoneticiekle" name="yoneticiekle" class="btn btn-primary">Yönetici Ekle</button>
+    <input type="submit" id="yoneticiekle" name="yoneticiekle" class="btn btn-primary" value="Yönetici Ekle">
   </div>
 </div>
 
 </fieldset>
-</form>
 </form>
 
 <?php

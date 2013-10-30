@@ -79,7 +79,6 @@ include("layout/_header.php");
 
 </div>
 <div class="span9">
-<form class="form-horizontal">
 <!-- Form Name -->
 <legend>İletişim Bilgileri</legend>
 </div>
@@ -92,6 +91,15 @@ include("layout/_header.php");
     
   </div>
 </div>
+
+<div class="control-group">
+  <label class="control-label" for="telno">Telefon Numarası </label>
+  <div class="controls">
+    <input id="telno" name="telno" placeholder="" class="input-large" type="text">
+    <p class="help-block">Örnegin: 0505-689-4556</p>
+  </div>
+</div>
+
 
 <!-- Select Basic -->
 <div class="control-group">
@@ -121,9 +129,11 @@ include("layout/_header.php");
     <textarea id="adres " name="adres "></textarea>
   </div>
 </div>
-</form>
+<input type="submit" class="btn btn-primary" value="Kayıt Ol">
 
 </form>
+<br>
+<br>
 </div>
 </div>
 </div>

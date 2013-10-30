@@ -3,17 +3,15 @@ include("layout/_head.php");
 include("layout/_header.php");
 ?>
 
-	<div class="span6 offset3">
+	<div class="span9">
 	<form class="form-horizontal">
 <fieldset>
 
-<form class="form-horizontal">
-<fieldset>
-
 <!-- Form Name -->
-<legend>Kurum Bilgileri Güncelleme Ekranı</legend>
-
+<legend>Kurum Kayıt Ekranı</legend>
+</div>
 <!-- Text input-->
+<div class="span6 offset4">
 <div class="control-group">
   <label class="control-label" for="kurumadi">Kurum Adı (*)</label>
   <div class="controls">
@@ -33,7 +31,14 @@ include("layout/_header.php");
     </select>
   </div>
 </div>
+</div>
 
+
+<div class="span9">
+<!-- Form Name -->
+<legend>İletişim Bilgileri</legend>
+</div>
+<div class="span6 offset4">
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label" for="email">Email (*)</label>
@@ -82,26 +87,12 @@ include("layout/_header.php");
   </div>
 </div>
 
-<!-- Button (Double) -->
-<div class="control-group">
-  <label class="control-label" for="guncelle"></label>
-  <div class="controls">
-    <button id="guncelle" name="guncelle" class="btn btn-success">Bilgilerimi Güncelle</button>
-    <button id="iptal" name="iptal" class="btn btn-danger">iptal</button>
-  </div>
+</form>
+<input type="submit" class="btn btn-primary" value="Kayıt Ekle">
+<br>
+<br>
+<br>
 </div>
-
-</fieldset>
-</form>
-
-
-
-
-
-</fieldset>
-</form>
-
-</form>
 
 <?php
 include('layout/_footer.php');

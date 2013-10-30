@@ -1,19 +1,7 @@
-<?php
-include("layout/_head.php");
-include("layout/_header.php");
-?>
-
-
 	<div class="span6 offset3">
 	<form class="form-horizontal">
 <fieldset>
-
-<form class="form-horizontal">
-<fieldset>
-
-<form class="form-horizontal">
-<fieldset>
-
+	
 <!-- Form Name -->
 <legend>Parola Bilgi Ekranı</legend>
 
@@ -52,17 +40,5 @@ include("layout/_header.php");
     <button id="Degistirmeiptali" name="Degistirmeiptali" class="btn btn-danger">İptal</button>
   </div>
 </div>
-
 </fieldset>
 </form>
-
-
-
-</fieldset>
-</form>
-
-</form>
-
-<?php
-include('layout/_footer.php');
-?>

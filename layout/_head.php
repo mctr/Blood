@@ -12,7 +12,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/jquery.js"></script>
 	<script src="bootstrap/js/dropdowns.js"></script>
-
+	<script src="/bootstrap/js/bootstrap-tab.js"></script>
     <style type="text/css" media="all">
       #main {
 			padding-top: 60px;
