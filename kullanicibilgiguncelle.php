@@ -1,3 +1,7 @@
+<?php
+include("layout/_head.php");
+include("layout/_header.php");
+?>
 <form class="form-horizontal">
 			<fieldset>
 
@@ -61,7 +65,7 @@
 			<div class="control-group">
 			  <label class="control-label" for="dogumtarihi">Doğum Tarihi (*)</label>
 			  <div class="controls">
-				<input id="dogumtarihi" name="dogumtarihi" placeholder="" class="input-large" type="text">
+				<input id="dogumtarihi" name="dogumtarihi" placeholder="" class="input-large" type="date">
 				<p class="help-block">Örneğin : 08.03.1992</p>
 			  </div>
 			</div>
@@ -88,3 +92,6 @@
 				</div>
 			  </div>
 			  </div>
+<?php
+include('layout/_footer.php');
+?>

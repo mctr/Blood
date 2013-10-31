@@ -15,7 +15,13 @@ include("config.php");
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}
+	if ($admins = $db->query("SELECT * FROM admins")){
+		foreach($admins as $row) {
+			echo $row['id']."\t".$row['first_name']."\t".$row['last_name']."\t".$row['email']."\t".$row['password_digest']."\t".$row['phone_number']."\t".$row['status']."\t". '<br/>';
+		}
+	}
 	
+	/*
 	if($_POST['parola'] == $_POST['parolatekrar'])
 	{
 		$db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES ('$_POST[ad]', '$_POST[soyad]', '$_POST[email]', '$_POST[parola]', '$_POST[telno]', 0)");
@@ -27,6 +33,7 @@ include("config.php");
 	{
 		echo 'Yeni kayıt eklerken bir hata meydana geldi.';
 	}
+	*/
 	
 	
 	

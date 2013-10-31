@@ -1,3 +1,8 @@
+<?php
+include("layout/_head.php");
+include("layout/_header.php");
+?>
+
 	<div class="span6 offset3">
 	<form class="form-horizontal">
 <fieldset>
@@ -42,3 +47,6 @@
 </div>
 </fieldset>
 </form>
+<?php
+include('layout/_footer.php');
+?>

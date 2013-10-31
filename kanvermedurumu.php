@@ -26,7 +26,7 @@ include("layout/_header.php");
 <div class="control-group">
   <label class="control-label" for="Sonkanvermetarihi">Son Kan Verme Tarihi(*)</label>
   <div class="controls">
-    <input id="Sonkanvermetarihi" name="Sonkanvermetarihi" placeholder="" class="input-large" type="text">
+    <input id="Sonkanvermetarihi" name="Sonkanvermetarihi" placeholder="" class="input-large" type="date">
     <p class="help-block">Örneğin : 08.03.1992</p>
   </div>
 </div>

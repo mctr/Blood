@@ -41,7 +41,7 @@ include("layout/_header.php");
 <div class="control-group">
   <label class="control-label" for="kanvermetarihi">Kan Verme Tarihi (*)</label>
   <div class="controls">
-    <input id="kanvermetarihi" name="kanvermetarihi" placeholder="" class="input-large" type="text">
+    <input id="kanvermetarihi" name="kanvermetarihi" placeholder="" class="input-large" type="date">
     
   </div>
 </div>

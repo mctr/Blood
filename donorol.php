@@ -72,7 +72,7 @@ include("layout/_header.php");
 <div class="control-group">
   <label class="control-label" for="doğumtarihi">Doğum Tarihi (*)</label>
   <div class="controls">
-    <input id="doğumtarihi" name="doğumtarihi" placeholder="" class="input-large" type="text">
+    <input id="doğumtarihi" name="doğumtarihi" placeholder="" class="input-large" type="date">
     <p class="help-block">Örneğin : 08.03.1992</p>
   </div>
 </div>
