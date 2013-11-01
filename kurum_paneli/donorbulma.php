@@ -1,16 +1,10 @@
-<?php
-include("layout/_head.php");
-include("layout/_header.php");
-?>
-	<br>
-	<br>
-	<div class="span6 offset3">
-	<form class="form-horizontal">
+<div class="offset1">
+<form class="form-horizontal">
 <fieldset>
 
 
 <!-- Form Name -->
-<legend>Donör Bulma </legend>
+<legend class="span10">Donör Bulma</legend>
 
 <!-- Select Basic -->
 <div class="control-group">
@@ -58,17 +52,5 @@ include("layout/_header.php");
     <button id="donorara" name="donorara" class="btn btn-danger">Donör Ara</button>
   </div>
 </div>
-
-</fieldset>
 </form>
-
-
-
-
-</fieldset>
-</form>
-</form>
-
-<?php
-include('layout/_footer.php');
-?>
+</div>

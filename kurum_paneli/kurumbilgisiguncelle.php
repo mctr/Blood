@@ -1,17 +1,9 @@
-<?php
-include("layout/_head.php");
-include("layout/_header.php");
-?>
-
-	<div class="span6 offset3">
-	<form class="form-horizontal">
-<fieldset>
-
+<div class="offset1">
 <form class="form-horizontal">
 <fieldset>
 
 <!-- Form Name -->
-<legend>Kurum Bilgileri Güncelleme Ekranı</legend>
+<legend class="span10">Kurum Bilgileri Güncelleme Ekranı</legend>
 
 <!-- Text input-->
 <div class="control-group">
@@ -93,16 +85,4 @@ include("layout/_header.php");
 
 </fieldset>
 </form>
-
-
-
-
-
-</fieldset>
-</form>
-
-</form>
-
-<?php
-include('layout/_footer.php');
-?>
+</div>

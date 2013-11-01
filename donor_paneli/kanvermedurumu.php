@@ -1,26 +1,6 @@
-<?php
-include("layout/_head.php");
-include("layout/_header.php");
-?>
-	</br>
-	<div class="span6 offset3">
+	<div class="offset1">
 	<form class="form-horizontal">
-<fieldset>
-
-<form class="form-horizontal">
-<fieldset>
-
-<form class="form-horizontal">
-<fieldset>
-<form class="form-horizontal">
-<fieldset>
-
-</fieldset>
-
-<!-- Form Name -->
-
-
-<legend>Kan Verme Durumunuz</legend>
+<legend class="span10">Kan Verme Durumunuz</legend>
 
 <!-- Text input-->
 <div class="control-group">
@@ -39,19 +19,6 @@ include("layout/_header.php");
     <button id="Degistirmeiptali" name="Degistirmeiptali" class="btn btn-danger">İptal</button>
   </div>
 </div>
-
-</fieldset>
-</form>
-
-
-
-
-</fieldset>
-</form>
-
 </form>
 </div>
 
-<?php
-include('layout/_footer.php');
-?>

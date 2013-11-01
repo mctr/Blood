@@ -1,26 +1,14 @@
-<?php
-include("layout/_head.php");
-include("layout/_header.php");
-?>
-
-	<br>
-	<br>
-	<div class="span6 offset3">
-	<form class="form-horizontal">
-<fieldset>
-
-
+<div class="offset1">
 <form class="form-horizontal">
 <fieldset>
 
-<!-- Form Name -->
-<legend>Acil Kan Talebi</legend>
+<legend class="span10">Acil Kan Talebi</legend><br>
 
 <!-- Select Basic -->
 <div class="control-group">
   <label class="control-label" for="kangrubu">Kan Grubu (*)</label>
   <div class="controls">
-    <select id="kangrubu" name="kangrubu" class="input-large">
+    <select id="kangrubu" name="kangrubu" class="input-large input-large">
       <option>A Rh (+)</option>
       <option>A Rh (-)</option>
       <option>B Rh +)</option>
@@ -33,6 +21,14 @@ include("layout/_header.php");
   </div>
 </div>
 
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="bagistalebi">Bağış Talebinin Gerekçelerini açıkça  belirtiniz</label>
+  <div class="controls">                     
+    <textarea id="bagistalebi" name="bagistalebi" rows="5"></textarea>
+  </div>
+</div>
+
 <!-- Button (Double) -->
 <div class="control-group">
   <label class="control-label" for="talepgonder"></label>
@@ -42,28 +38,7 @@ include("layout/_header.php");
   </div>
 </div>
 
-<!-- Textarea -->
-<div class="control-group">
-  <label class="control-label" for="bagistalebi">Bağış Talebinin Gerekçelerini açıkça  belirtiniz</label>
-  <div class="controls">                     
-    <textarea id="bagistalebi" name="bagistalebi"></textarea>
-  </div>
+
+</fieldset>
+</form>
 </div>
-
-</fieldset>
-</form>
-
-</fieldset>
-</form>
-
-
-
-
-</fieldset>
-</form>
-
-</form>
-
-<?php
-include('layout/_footer.php');
-?>
