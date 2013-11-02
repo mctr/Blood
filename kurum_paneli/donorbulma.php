@@ -11,6 +11,7 @@
   <label class="control-label" for="kangrubu">Kan Grubu</label>
   <div class="controls">
     <select id="kangrubu" name="kangrubu" class="input-large">
+      <option>Kan Grubu</option>
       <option>A Rh(+)</option>
       <option>A Rh(-)</option>
       <option>B Rh(+)</option>

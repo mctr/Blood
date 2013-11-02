@@ -15,11 +15,41 @@ include("config.php");
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}
-	if ($admins = $db->query("SELECT * FROM admins")){
-		foreach($admins as $row) {
-			echo $row['id']."\t".$row['first_name']."\t".$row['last_name']."\t".$row['email']."\t".$row['password_digest']."\t".$row['phone_number']."\t".$row['status']."\t". '<br/>';
-		}
-	}
+	$username = "mesut.cittir@bil.omu.edu.tr";
+	$password = "12345";
+	
+	$sorgu = $db->prepare("SELECT email, password_digest FROM admins WHERE email='$username' or password_digest='$password'");
+	$sorgu->execute(array($email, $passwd));
+	$sorgu->bindColumn('email', $email);
+	$sorgu->bindColumn('password_digest', $passwd);
+	$sorgu->fetch(PDO::FETCH_BOUND);
+	
+	echo "email :".$email;
+	echo "<br>"."parola :".$passwd;
+	//~ $username = "mesut.cittir@bil.omu.edu.tr";
+	//~ $password = "123";
+	//~ 
+	//~ $admins = $db->query("SELECT * FROM admins WHERE email='$username' AND password_digest='$password'", PDO::FETCH_NUM);
+	//~ 
+	//~ 
+	//~ if (isset($admins)) {
+			//~ echo "true";
+			//~ foreach($admins as $row) {
+				//~ echo $row['id']."\t".$row['first_name']."\t".$row['last_name']."\t".$row['email']."\t".$row['password_digest']."\t".$row['phone_number']."\t".$row['status']."\t". '<br/>';
+		//~ }
+			
+			//~ $_SESSION['email'] = $username;
+			//~ $error_message = Null;
+			//~ header("Location:index.php");
+		//~ } else {
+			//~ echo "false";
+			//~ $error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
+		//~ }
+	//~ if ($admins = $db->query("SELECT * FROM admins")){
+		//~ foreach($admins as $row) {
+			//~ echo $row['id']."\t".$row['first_name']."\t".$row['last_name']."\t".$row['email']."\t".$row['password_digest']."\t".$row['phone_number']."\t".$row['status']."\t". '<br/>';
+		//~ }
+	//~ }
 	
 	/*
 	if($_POST['parola'] == $_POST['parolatekrar'])

@@ -46,6 +46,9 @@ include("layout/_header.php");
 	<br>
 	<br>
 	<center><h6>Kayıtlı kuruluş:3,donör sayısı:23</h6></center>
+	<?php echo $_SESSION['email']."<br>"; ?>
+	<?php echo $_SESSION['dene']; ?>
+	<a href="logout.php">Çıkış yap</a>
 <?php
 include("layout/_footer.php");
 ?>

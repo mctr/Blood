@@ -2,7 +2,7 @@
 include("layout/_head.php");
 include("layout/_header.php");
 
-include("_login.php");
+//include("_login.php");
 ?>
 
 <br><br>
