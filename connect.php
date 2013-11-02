@@ -1,56 +1,51 @@
 
 <?php
+include("layout/_head.php");
+include("layout/_header.php");
 include("config.php");
 ?>
+
+<legend>Kayıtlı Kurum Ve Kuruluşlar
+			<div class="pull-right"><a href="kurumekle.php" class="btn btn-primary">Yeni Kurum Kaydı</a></div>
+			</legend>
+			<br>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+					<th>Adı</th>
+					<th>İl</th>
+					<th>İlçe</th>
+					<th>Kurum Tipi</th>
+					</tr>
+				</thead>
+				<tbody>
 
 <?php
 	//Veritabanı Baglantısı
 	//~ 
-	$dsn = "mysql:host=localhost;dbname=Blood";
-	$user = "root";
-	$password = "";
+	//~ $dsn = "mysql:host=localhost;dbname=Blood";
+	//~ $user = "root";
+	//~ $password = "";
  
 	try {
 		$db = new PDO($dsn, $user, $password);
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}
-	$username = "mesut.cittir@bil.omu.edu.tr";
-	$password = "12345";
 	
-	$sorgu = $db->prepare("SELECT email, password_digest FROM admins WHERE email='$username' or password_digest='$password'");
-	$sorgu->execute(array($email, $passwd));
-	$sorgu->bindColumn('email', $email);
-	$sorgu->bindColumn('password_digest', $passwd);
-	$sorgu->fetch(PDO::FETCH_BOUND);
-	
-	echo "email :".$email;
-	echo "<br>"."parola :".$passwd;
-	//~ $username = "mesut.cittir@bil.omu.edu.tr";
-	//~ $password = "123";
-	//~ 
-	//~ $admins = $db->query("SELECT * FROM admins WHERE email='$username' AND password_digest='$password'", PDO::FETCH_NUM);
-	//~ 
-	//~ 
-	//~ if (isset($admins)) {
-			//~ echo "true";
-			//~ foreach($admins as $row) {
-				//~ echo $row['id']."\t".$row['first_name']."\t".$row['last_name']."\t".$row['email']."\t".$row['password_digest']."\t".$row['phone_number']."\t".$row['status']."\t". '<br/>';
-		//~ }
-			
-			//~ $_SESSION['email'] = $username;
-			//~ $error_message = Null;
-			//~ header("Location:index.php");
-		//~ } else {
-			//~ echo "false";
-			//~ $error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
-		//~ }
-	//~ if ($admins = $db->query("SELECT * FROM admins")){
-		//~ foreach($admins as $row) {
-			//~ echo $row['id']."\t".$row['first_name']."\t".$row['last_name']."\t".$row['email']."\t".$row['password_digest']."\t".$row['phone_number']."\t".$row['status']."\t". '<br/>';
-		//~ }
-	//~ }
-	
+	$kurum = $db->query("SELECT * FROM admins", PDO::FETCH_NUM);
+	foreach($kurum as $row) {
+					echo "<tr>";
+					echo "<td>".$row[1]."</td>";
+					echo "<td>".$row[2]."</td>";
+					echo "<td>".$row[3]."</td>";
+					echo "<td>".$row[5]."</td>";
+					echo "</tr>";
+				}
+?>
+	</tbody>
+</table>
+<?php	
 	/*
 	if($_POST['parola'] == $_POST['parolatekrar'])
 	{

@@ -17,4 +17,7 @@ define('MYSQL_PASS',	'');
 
 include 'db.php';
 
+	$dsn = "mysql:host=localhost;dbname=Blood";
+	$user = "root";
+	$password = "";
 ?>
