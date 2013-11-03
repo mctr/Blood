@@ -1,20 +1,52 @@
 
 <?php
-//~ include("layout/_head.php");
-//~ include("layout/_header.php");
+include("layout/_head.php");
+include("layout/_header.php");
 include("config.php");
 ?>
-
 <?php 
 	try {
 		$db = new PDO($dsn, $user, $password);
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}
-	
-	$admin = $db->query("SELECT * FROM admins");
-	$kac = $admin->rowCount();
 ?>
+
+<!--<form method="get" action="deneme.php">-->
+<div class="control-group">
+  <label class="control-label" for="il">İl</label>
+  <div class="controls">
+    <select id="il" name="il" class="input-large">
+      <option value="0">İl Seçiniz</option>
+      <?php
+		$city = $db->query("SELECT ID, ADI FROM il ORDER BY ID ASC");
+		foreach($city as $row){
+	  ?>	
+				<option value="<?php echo $row['ID'];?>"><?php echo $row['ADI']; ?></option>
+      <?php } ?>
+    </select>
+  </div>
+</div>
+
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="ilce">İlçe</label>
+  <div class="controls">
+    <select id="ilce" name="ilce" class="input-large">
+      <option value="0">İlçe Seçiniz</option>
+      <?php
+		echo $_GET['il'];
+		$ilce = $db->query("SELECT ID, ADI FROM ilce WHERE IL_ID='$il_id' ORDER BY ID ASC");
+		foreach($ilce as $row){
+	  ?>	
+				<option value="<?php echo $row['ID'];?>"><?php echo $row['ADI']; ?></option>
+      <?php } ?>
+    </select>
+  </div>
+</div>
+<!--<input type="submit" value="Gönder" class="btn btn-primary">-->
+
 <?php
 	/*
 	if($_POST['parola'] == $_POST['parolatekrar'])
@@ -120,4 +152,7 @@ include("config.php");
 		//~ }
 	//~ 
 	//~ }
+?>
+<?php
+include("layout/_footer.php");
 ?>

@@ -116,7 +116,11 @@ class DB {
 
 		return $result;
 	}
-
+	
+	public static function fassoc($result)
+	{
+		return mysql_fetch_assoc($result);
+	}
 	/*
 	* Query metodu ile aynı işlemi yapar
 	* fakat etkilenen satır sayısını
