@@ -1,7 +1,6 @@
 <?php
 include("layout/_head.php");
 include("layout/_header.php");
-include("connect.php");
 ?>
 <!--
 <br><a href="acilkantalebi.php">Acil Kan Talebi</a>
