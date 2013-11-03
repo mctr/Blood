@@ -15,7 +15,7 @@ define('MYSQL_DB',		'Blood');
 define('MYSQL_USER',	'root');
 define('MYSQL_PASS',	'');
 
-include 'db.php';
+require_once 'db.php';
 
 	$dsn = "mysql:host=localhost;dbname=Blood";
 	$user = "root";

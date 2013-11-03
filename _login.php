@@ -19,10 +19,6 @@
 	if(isset($_POST['username']) && isset($_POST['password'])) {
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		
-		$dsn = "mysql:host=localhost;dbname=Blood";
-		$user = "root";
-		$parola = "";
 		 
 		try {
 			$db = new PDO($dsn, $user, $parola);		

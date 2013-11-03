@@ -10,9 +10,6 @@
     <link href="bootstrap/css/style.css" rel="stylesheet" />
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="bootstrap/js/jquery.js"></script>
-	<script src="bootstrap/js/dropdowns.js"></script>
-	<script src="/bootstrap/js/bootstrap-tab.js"></script>
     <style type="text/css" media="all">
       #main {
 			padding-top: 60px;
@@ -23,6 +20,3 @@
     </style>
   </head>
   <body>
-<?php
-$Path = "http://localhost/KEYDER/";
-?>

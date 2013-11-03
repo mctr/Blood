@@ -19,42 +19,28 @@
 	</div>
 </div>
 </div>
--->	
+-->
+
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+    <script>window.jQuery || document.write('<script src="bootstrap/js/jquery-1.7.2.min.js"><\/script>')</script>
+
+    <!-- Bootstrap jQuery plugins compiled and minified --> 
+    <script src="bootstrap/js/bootstrap-trim.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.carousel').carousel({
+          interval: 4000
+        });
+      });
+    </script>
+    
+<!--        
 <script src="/bootstrap/js/jquery.js"></script>
 <script src="/bootstrap/js/dropdowns.js"></script>
 <script src="/bootstrap/js/bootstrap-tab.js"></script>
-
  <script src="http://code.jquery.com/jquery.js"></script>
- 
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/jquery.js"></script>
-<script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
-<script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tab.js"></script>
-<!--
-<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/jquery.js"></script>
-<script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-transition.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-alert.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-modal.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-dropdown.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-scrollspy.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-tab.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-tooltip.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-popover.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-button.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-collapse.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-carousel.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-typeahead.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/bootstrap-affix.js"></script>
-
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/holder/holder.js"></script>
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/google-code-prettify/prettify.js"></script>
-
-<script src="http://twitter.github.io/bootstrap/2.3.2/js/application.js"></script>
-
-
-<script src="http://twitter.github.io/bootstrap/dist/js/bootstrap.js"></script>
 -->
+
 </body>
 
 </html>

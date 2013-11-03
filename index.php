@@ -1,6 +1,7 @@
 <?php
 include("layout/_head.php");
 include("layout/_header.php");
+include("connect.php");
 ?>
 <!--
 <br><a href="acilkantalebi.php">Acil Kan Talebi</a>
@@ -31,7 +32,7 @@ include("layout/_header.php");
 		<img src="bootstrap/img/survey.png" alt="">
 		<h3>Bla Bla Bla</h3>
 		<p>Olaylar Olaylar</p>
-		<center><a href="donorbulma.php" class="btn btn-primary">Donör Sorgula</a></center>
+		<center><a href="kurum_paneli/donorbulma.php" class="btn btn-primary">Donör Sorgula</a></center>
 		</div>	
 	
 		
@@ -45,9 +46,8 @@ include("layout/_header.php");
 	</div>
 	<br>
 	<br>
-	<center><h6>Kayıtlı kuruluş:3,donör sayısı:23</h6></center>
+	<center><h6>Kayıtlı Kuruluş:3,Donör Sayısı:</h6></center>
 	<?php echo $_SESSION['email']."<br>"; ?>
-	<?php echo $_SESSION['dene']; ?>
 	<a href="logout.php">Çıkış yap</a>
 <?php
 include("layout/_footer.php");
