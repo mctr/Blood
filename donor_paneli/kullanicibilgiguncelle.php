@@ -1,5 +1,6 @@
 <div class="offset1">
 <legend class="span8">Kullanıcı Bİlgileri Güncelleme Ekranı</legend>
+<p>
 
 <form class="form-horizontal" id="registerHere1" name="registerHere2" method="post" action="#">
     <fieldset>

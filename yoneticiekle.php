@@ -5,7 +5,7 @@ include("config.php");
 ?>
 
 <?php
-	if($_GET[yoneticiekle] == 1)
+	if(!isset($_GET[kayit]))
 	{
 		if(!isset($_POST[email]) || empty($_POST[email])){
 				$hata = "Tüm alanları doldurmanız gerekiyor";
@@ -17,9 +17,17 @@ include("config.php");
 				$hata = "Tüm alanları doldurmanız gerekiyor";
 		}
 		if (!$hata){
-			if($_POST['parola'] == $_POST['parolatekrar']){
+			$hata = "Girdiginiz parolalar eşit olmalı";
+			if($_POST['parola'] === $_POST['parolatekrar']){
 				
-				$db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES ('$_POST[ad]', '$_POST[soyad]', '$_POST[email]', '$_POST[parola]', '$_POST[telno]', 0)");
+				//$sonuc = $db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES ('$_POST[ad]', '$_POST[soyad]', '$_POST[email]', '$_POST[parola]', '$_POST[telno]', 0)");
+				$db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES (:ad, :soyad, :email, :parola, :telno, :statu)");
+				$db->bindParam(':ad', $_POST['ad']);
+                $db->bindParam(':soyad', $_POST['soyad']);
+                $db->bindParam(':email', $_POST['email']);
+                $db->bindParam(':parola', $_POST['parola']);
+                $db->bindParam(':telno', $_POST['telno']);
+                $db->bindParam(':statu', 0);
 				
 				$mesaj = "Kayıt başarıyla gerçekleşti.";
 				//~ $id = $db->lastInsertId();
@@ -34,7 +42,7 @@ include("config.php");
 	<br>
 	<br>
 	<div class="span6 offset3">
-<form class="form-horizontal" action="yoneticiekle.php?yoneticiekle=1" method="post">
+<form class="form-horizontal" action="yoneticiekle.php?kayit=1" method="post">
 <fieldset>
 
 <!-- Form Name -->
