@@ -1,66 +1,10 @@
-
 <?php
-include("layout/_head.php");
-include("layout/_header.php");
-include("config.php");
-?>
-<?php 
-	try {
-		$db = new PDO($dsn, $user, $password);
-	} catch (PDOException $e) {
-		echo "Connection failed: " . $e->getMessage();
-	}
+include('layout/_head.php');
+include('layout/_header.php');
+include_once('config.php');
+
 ?>
 
-
-<form method="post" action="deneme.php">
-<div class="control-group">
-  <label class="control-label" for="il">İl</label>
-  <div class="controls">
-    <select onClick="val()" id="il" name="il" class="input-large">
-      <option value="0">İl Seçiniz</option>
-      <?php
-		$city = $db->query("SELECT ID, ADI FROM il ORDER BY ID ASC");
-		foreach($city as $row){
-	  ?>
-				<option value="<?php echo $row['ID'];?>"><?php echo $row['ADI']; ?></option>
-
-      <?php } ?>
-    </select>
-  </div>
-</div>
-
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="ilce">İlçe</label>
-  <div class="controls">
-    <select id="ilce" name="ilce" class="input-large">
-      <option value="0">İlçe Seçiniz</option>
-      <?php
-		$il_id = $_GET['d'];
-
-		$ilce = $db->query("SELECT ID, ADI FROM ilce WHERE IL_ID='$il_id' ORDER BY ID ASC");
-		foreach($ilce as $row){
-	  ?>	
-				<option value="<?php echo $row['ID'];?>"><?php echo $row['ADI']; ?></option>
-      <?php } ?>
-    </select>
-  </div>
-</div>
-<input type="hidden" name="il_id" value="<?php echo $_GET['d']; ?>">
-<input type="submit" value="Gönder" class="btn btn-primary">
-
-</form>
-<script type="text/javascript">
-
-function val() {
-d = document.getElementById("il").value;
-window.location.href = "http://localhost/KEYDER/connect.php?d=" + d;
-}
-</script>
-
-
-<!--<input type="submit" value="Gönder" class="btn btn-primary">-->
 
 <?php
 	/*
@@ -169,5 +113,5 @@ window.location.href = "http://localhost/KEYDER/connect.php?d=" + d;
 	//~ }
 ?>
 <?php
-include("layout/_footer.php");
+include_once("layout/_footer.php");
 ?>

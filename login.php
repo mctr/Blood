@@ -28,13 +28,15 @@ include("layout/_header.php");
 		$admin->bindParam(2,$password);
 		$admin->execute();
 		
-		if ($admin->rowCount() > 0) {
+		if ($admin->rowCount() == 1) {
 			$_SESSION['email'] = $username;
 			$error_message = Null;
 			header("Location:index.php");
 		} else {
 			$error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
 		}
+	} else {
+		$error_message = "Lütfen kullanıcı adınızı ve şifrenizi giriniz";
 	}
 ?>
 

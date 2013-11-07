@@ -17,6 +17,9 @@
 		body {
 			background-image : url(./bootstrap/img/arka6.png)
 		}
+		.alt {
+			padding-bottom: 50px;
+		}
     </style>
   </head>
   <body>

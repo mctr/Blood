@@ -5,44 +5,51 @@ include("config.php");
 ?>
 
 <?php
-	if(!isset($_GET[kayit]))
+	if(isset($_POST['email']) && isset($_POST['parola']))
 	{
-		if(!isset($_POST[email]) || empty($_POST[email])){
-				$hata = "Tüm alanları doldurmanız gerekiyor";
-		}
-		if(!isset($_POST[parola]) || empty($_POST[parola])){
-				$hata = "Tüm alanları doldurmanız gerekiyor";
-		}
-		if(!isset($_POST[parolatekrar]) || empty($_POST[parolatekrar])){
-				$hata = "Tüm alanları doldurmanız gerekiyor";
-		}
-		if (!$hata){
-			$hata = "Girdiginiz parolalar eşit olmalı";
+		//~ if(!isset($_POST[email]) || empty($_POST[email])){
+				//~ $hata = "Tüm alanları doldurmanız gerekiyor";
+		//~ }
+		//~ if(!isset($_POST[parola]) || empty($_POST[parola])){
+				//~ $hata = "Tüm alanları doldurmanız gerekiyor";
+		//~ }
+		//~ if(!isset($_POST[parolatekrar]) || empty($_POST[parolatekrar])){
+				//~ $hata = "Tüm alanları doldurmanız gerekiyor";
+		//~ }
+		//~ if (!$hata){
+			
 			if($_POST['parola'] === $_POST['parolatekrar']){
 				
-				//$sonuc = $db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES ('$_POST[ad]', '$_POST[soyad]', '$_POST[email]', '$_POST[parola]', '$_POST[telno]', 0)");
-				$db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES (:ad, :soyad, :email, :parola, :telno, :statu)");
-				$db->bindParam(':ad', $_POST['ad']);
-                $db->bindParam(':soyad', $_POST['soyad']);
-                $db->bindParam(':email', $_POST['email']);
-                $db->bindParam(':parola', $_POST['parola']);
-                $db->bindParam(':telno', $_POST['telno']);
-                $db->bindParam(':statu', 0);
 				
-				$mesaj = "Kayıt başarıyla gerçekleşti.";
+				//~ $sql = "INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES (?,?,?,?,?,?)";
+				//~ $veri = array($_POST['ad'], $_POST['soyad'], $_POST['email'], $_POST['parola'], $_POST['telno'], '0');
+				//~ $yap = $db->prepare($sql);
+				//~ $yap->execute($veri);
+				
+				$sonuc = $db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES ('$_POST[ad]', '$_POST[soyad]', '$_POST[email]', '$_POST[parola]', '$_POST[telno]', 0)");
+				//~ $db->exec("INSERT INTO admins (first_name, last_name, email, password_digest, phone_number, status) VALUES (:ad, :soyad, :email, :parola, :telno, :statu)");
+				//~ $db->bindParam(':ad', $_POST['ad']);
+                //~ $db->bindParam(':soyad', $_POST['soyad']);
+                //~ $db->bindParam(':email', $_POST['email']);
+                //~ $db->bindParam(':parola', $_POST['parola']);
+                //~ $db->bindParam(':telno', $_POST['telno']);
+                //~ $db->bindParam(':statu', 0);
+				if ($sonuc) {
+					$mesaj = "Kayıt başarıyla gerçekleşti.";
+				} else {
+					$mesaj = "Kayıt başarıyla gerçekleşemedi.";
+				}
 				//~ $id = $db->lastInsertId();
 				//~ echo 'Yeni eklenen üyenin IDsi: ' . $id;
 			}
 		}
 		
-	}
-
 ?>
 
 	<br>
 	<br>
 	<div class="span6 offset3">
-<form class="form-horizontal" action="yoneticiekle.php?kayit=1" method="post">
+<form class="form-horizontal" action="" method="post">
 <fieldset>
 
 <!-- Form Name -->
@@ -76,9 +83,9 @@ include("config.php");
 
 <!-- Text input-->
 <div class="control-group">
-  <label class="control-label" for="email">E-mail</label>
+  <label class="control-label" for="email">E-mail(*)</label>
   <div class="controls">
-    <input id="email" name="email" placeholder="" class="input-large" type="text">
+    <input id="email" name="email" placeholder="" class="input-large" type="email">
     
   </div>
 </div>
