@@ -1,6 +1,7 @@
 <?php
-include("layout/_head.php");
-include("layout/_header.php");
+include('layout/_head.php');
+include('layout/_header.php');
+include('config.php');
 ?>
 
 	<div class="span9">
@@ -61,9 +62,21 @@ include("layout/_header.php");
 <div class="control-group">
   <label class="control-label" for="il">İl</label>
   <div class="controls">
-    <select id="il" name="il" class="input-large">
-      <option>Option one</option>
-      <option>Option two</option>
+    <select onChange="ilceListele(this.value)" id="il" name="il" class="input-large">
+      <option value="0">İl Seçiniz</option>
+      <?php
+		try {
+			$db = new PDO($dsn, $user, $password);
+			$city = $db->query("SELECT ID, ADI FROM il ORDER BY ID ASC");
+			foreach($city as $row){
+	  ?>
+				<option value="<?= $row['ID'];?>"><?= $row['ADI']; ?></option>
+
+      <?php }
+		} catch (PDOException $e) {
+			echo "Connection failed: " . $e->getMessage();
+		}
+      ?>
     </select>
   </div>
 </div>
@@ -73,12 +86,10 @@ include("layout/_header.php");
   <label class="control-label" for="ilce">İlçe</label>
   <div class="controls">
     <select id="ilce" name="ilce" class="input-large">
-      <option>Option one</option>
-      <option>Option two</option>
+      <option>İlçe Seçiniz</option>
     </select>
   </div>
 </div>
-
 <!-- Textarea -->
 <div class="control-group">
   <label class="control-label" for="adres">Adres</label>
@@ -93,6 +104,28 @@ include("layout/_header.php");
 <br>
 <br>
 </div>
+
+<script>
+	function ilceListele(str){
+		var xmlhttp;
+		if (str == "") {
+			document.getElementById("ilce").innerHTML = "";
+			return;
+		}
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("ilce").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET", "ilce_listele.php?il=" + str, true);
+		xmlhttp.send();
+	}
+</script>
 
 <?php
 include('layout/_footer.php');

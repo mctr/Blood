@@ -31,7 +31,7 @@ include("layout/_header.php");
 		<img src="bootstrap/img/survey.png" alt="">
 		<h3>Bla Bla Bla</h3>
 		<p>Olaylar Olaylar</p>
-		<center><a href="kurum_paneli/donorbulma.php" class="btn btn-primary">Donör Sorgula</a></center>
+		<center><a href="donorsorgula.php" class="btn btn-primary">Donör Sorgula</a></center>
 		</div>	
 	
 		

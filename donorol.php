@@ -57,16 +57,21 @@ if ($_GET['donor'] == 1){
   <label class="control-label" for="selectbasic">Kan Grubu (*) :</label>
   <div class="controls">
     <select id="selectbasic" name="selectbasic" class="input-large">
-      <option></option>
-      <option>A Rh(+)</option>
-      <option>A Rh(-)</option>
-      <option>B Rh(+)</option>
-      <option>B Rh(-)</option>
-      <option>AB Rh(+)</option>
-      <option>AB Rh(-)</option>
-      <option>0 Rh(+)</option>
-      <option>0 Rh(-)</option>
-    </select>
+      <option>Kan Grubu</option>
+      <?php
+		try {
+			$db = new PDO($dsn, $user, $password);
+			$kangruplari = $db->query("SELECT * FROM blood_groups ORDER BY id ASC");
+			foreach($kangruplari as $row){
+		?>
+			 <option value="<?= $row['id']?>"><?= $row['name'] ?></option>
+	<?php	}
+		} catch (PDOException $e) {
+			echo "Connection failed: " . $e->getMessage();
+		}
+	
+	?>
+	</select>
   </div>
 </div>
 
@@ -144,7 +149,35 @@ if ($_GET['donor'] == 1){
   </div>
 </div>
 
-<?php include_once('il_ilce.php'); ?>
+
+<div class="control-group">
+  <label class="control-label" for="il">İl(*)</label>
+  <div class="controls">
+    <select onChange="ilceListele(this.value)" id="il" name="il" class="input-large">
+      <option value="0">İl Seçiniz</option>
+      <?php
+		$city = $db->query("SELECT ID, ADI FROM il ORDER BY ID ASC");
+		foreach($city as $row){
+	  ?>
+				<option value="<?= $row['ID'];?>"><?= $row['ADI']; ?></option>
+
+      <?php } ?>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+
+
+<div class="control-group">
+  <label class="control-label" for="ilce">İlçe(*)</label>
+  <div class="controls">
+    <select id="ilce" name="ilce" class="input-large">
+      <option value="0">İlçe Seçiniz</option>
+      
+    </select>
+  </div>
+</div>
 
 <!-- Textarea -->
 <div class="control-group">
