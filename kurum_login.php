@@ -4,6 +4,49 @@ include("layout/_header.php");
 
 //include("_login.php");
 ?>
+<?php
+	session_start();
+	include 'config.php';
+	
+	if(isset($_SESSION['email']))
+	{
+		header("Location:index.php");
+	}
+
+	if(isset($_POST['username']) && isset($_POST['password'])) {
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		 
+		try {
+			$db = new PDO($dsn, $user, $parola);		
+		} catch (PDOException $e) {
+			echo "Baglantı hatalı: " . $e->getMessage();
+		}
+		
+		$institute = $db->prepare("SELECT * FROM institutes WHERE email=? AND password_digest=?");
+		$institute->bindParam(1,$username);
+		$institute->bindParam(2,$password);
+		$institute->execute();
+		
+		if ($institute->rowCount() > 0) {
+			$_SESSION['email'] = $username;
+			$error_message = Null;
+			header("Location:index.php");
+		} else {
+			$error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
+		}
+	}
+?>
+
+
+
+
+
+
+
+
+
+
 
 <br><br>
 <div id="wrap">
