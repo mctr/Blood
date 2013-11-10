@@ -4,7 +4,38 @@ include('layout/_header.php');
 include_once('config.php');
 
 ?>
+<table class="table table-condensed">
+				<thead>
+					<tr>
+					<th>Adı</th>
+					<th>Kurum Tipi</th>
+					<th>İl</th>
+					<th>İlçe</th>
+					</tr>
+				</thead>
+				<tbody>
+<?php
+	try {
+			$db = new PDO($dsn, $user, $password);
+			$kurum_tipi = $db->query("SELECT institutes.name, il.ADI, ilce.ADI FROM institutes INNER JOIN İL ON institutes.il=il.id INNER JOIN ilce ON il.ID=ilce.IL_ID"); 
+			$kurum = $db->query("SELECT institutes.name, il.ADI FROM institutes INNER JOIN il ON institutes.city_id=il.ID");
+			foreach($kurum_tipi as $row) {
+					echo "<tr>";
+					echo "<td>".$row['name']."</td>";
+					echo "<td>".$row['ADI']."</td>";
+					//~ echo "<td>".$row['ADI']."</td>";
+					//echo "<td>".$row['district_id']."</td>";
+					//echo "<td>".$row['role_id']."</td>";
+					echo "</tr>";
+				}
+	} catch (PDOException $e) {
+		echo "Connection failed: " . $e->getMessage();
+	}
 
+?>
+
+</tbody>
+</table>
 
 <?php
 	/*
@@ -83,7 +114,7 @@ include_once('config.php');
 	
 	/////////////////////////////////////////
 
-	//~ if($sorgu = $db->query('SELECT * FROM users')) {
+	//~ if($sorgu = $db->query('SELECT * FROM admins')) {
  //~ 
 		//~ foreach($sorgu as $row)
 		//~ {

@@ -31,14 +31,13 @@ include("config.php");
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}
-	
-	$kurum = $db->query("SELECT * FROM institutes", PDO::FETCH_NUM);
+	$kurum = $db->query("SELECT institutes.name, il.ADI, ilce.ID, roles.id FROM institutes INNER JOIN il ON institutes.city_id=il.ID INNER JOIN ilce ON institutes.district_id=ilce.ID INNER JOIN roles ON institutes.role_id=roles.id");
 	foreach($kurum as $row) {
 					echo "<tr>";
-					echo "<td>".$row[1]."</td>";
-					echo "<td>".$row[2]."</td>";
-					echo "<td>".$row[3]."</td>";
-					echo "<td>".$row[5]."</td>";
+					echo "<td>".$row['name']."</td>";
+					echo "<td>".$row['ADI']."</td>";
+					echo "<td>".$row['']."</td>";
+					echo "<td>".$row['roles.id']."</td>";
 					echo "</tr>";
 				}
 ?>

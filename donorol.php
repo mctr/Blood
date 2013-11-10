@@ -156,12 +156,18 @@ if ($_GET['donor'] == 1){
     <select onChange="ilceListele(this.value)" id="il" name="il" class="input-large">
       <option value="0">İl Seçiniz</option>
       <?php
+	try {
+		$db = new PDO($dsn, $user, $password);
 		$city = $db->query("SELECT ID, ADI FROM il ORDER BY ID ASC");
 		foreach($city as $row){
 	  ?>
 				<option value="<?= $row['ID'];?>"><?= $row['ADI']; ?></option>
 
-      <?php } ?>
+      <?php }
+		} catch (PDOException $e) {
+			echo "Connection failed: " . $e->getMessage();
+		}
+		?>
     </select>
   </div>
 </div>

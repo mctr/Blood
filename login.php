@@ -36,7 +36,6 @@ include("layout/_header.php");
 			$error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
 		}
 	} else {
-		$error_message = "Lütfen kullanıcı adınızı ve şifrenizi giriniz";
 	}
 ?>
 

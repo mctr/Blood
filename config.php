@@ -13,11 +13,11 @@ date_default_timezone_set('Europe/Istanbul');
 define('MYSQL_HOST',	'localhost');
 define('MYSQL_DB',		'Blood');
 define('MYSQL_USER',	'root');
-define('MYSQL_PASS',	'1234');
+define('MYSQL_PASS',	'');
 
 require_once 'db.php';
 
 	$dsn = "mysql:host=localhost;dbname=Blood";
 	$user = "root";
-	$password = "1234";
+	$password = "";
 ?>
