@@ -1,20 +1,9 @@
 <?php
-include("layout/_head.php");
-include("layout/_header.php");
+include('layout/_head.php');
+include('layout/_header.php');
+include_once('config.php');
 ?>
-<!--
-<br><a href="acilkantalebi.php">Acil Kan Talebi</a>
-<br><a href="donorbulma.php">Donor Bulma</a>
-<br><a href="donorlogin.php">Donor Login</a>
-<br><a href="donorol.php">Donor Ol</a>
-<br><a href="kanvermedurumu.php">Kan Verme Durumu</a>
-<br><a href="kanvermekayitislemi.php">Kan Verme Kayıt İşlemi</a>
-<br><a href="kullanicibilgiguncelle.php">Kullanıcı Bilgi Güncelle</a>
-<br><a href="kurumbilgisiguncelle.php">Kurum Bilgisi Güncelle</a>
-<br><a href="parolabilgiekrani.php">Parola Bilgi Ekranı</a>
-<br><a href="yoneticiduzenle.php">Yönetici Düzenle</a>
-<br><a href="yoneticiekle.php">Yönetici Ekle</a>
--->
+
 	<br>
 	<br>
 	<div id="main">
@@ -45,7 +34,28 @@ include("layout/_header.php");
 	</div>
 	<br>
 	<br>
-	<center><h6>Kayıtlı Kuruluş:3,Donör Sayısı:</h6></center>
+<?php
+	try {
+		$db = new PDO($dsn, $user, $password);
+		$query1 = "SELECT * from institutes";
+		$query2 = "SELECT * FROM donors";
+
+		$k_sayisi = $db->prepare($query1);
+		$d_sayisi = $db->prepare($query2);
+
+		$k_sayisi->execute();
+		$d_sayisi->execute();
+		
+		$kurum_sayisi = $k_sayisi->rowCount();
+		$donor_sayisi = $d_sayisi->rowCount();
+		//~ echo $k_sayisi->rowCount(); 
+		//~ echo $d_sayisi->rowCount(); 
+	} catch (PDOException $e) {
+		echo "Connection failed: " . $e->getMessage();
+	}
+?>
+
+	<center><h6>Kayıtlı Kuruluş:<?= $kurum_sayisi;?>,Donör Sayısı:<?= $donor_sayisi;?></h6></center>
 	<?php echo $_SESSION['email']."<br>"; ?>
 	<a href="logout.php">Çıkış yap</a>
 <?php

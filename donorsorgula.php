@@ -41,10 +41,10 @@ include_once('config.php');
     <select onChange="ilceListele(this.value)" id="il" name="il" class="input-large">
       <option value="0">İl Seçiniz</option>
       <?php
-		$city = $db->query("SELECT ID, ADI FROM il ORDER BY ID ASC");
+		$city = $db->query("SELECT ID, il_adi FROM il ORDER BY ID ASC");
 		foreach($city as $row){
 	  ?>
-				<option value="<?= $row['ID'];?>"><?= $row['ADI']; ?></option>
+				<option value="<?= $row['ID'];?>"><?= $row['il_adi']; ?></option>
 
       <?php } ?>
     </select>

@@ -78,7 +78,7 @@ if($mesaj){
 			$kurumtipi = $db->query("SELECT * FROM roles ORDER BY id ASC");
 			foreach($kurumtipi as $row){
 		?>
-			 <option value="<?= $row['id']?>"><?= $row['name'] ?></option>
+			 <option value="<?= $row['id']?>"><?= $row['institute_name'] ?></option>
 	<?php	}
 		} catch (PDOException $e) {
 			echo "Connection failed: " . $e->getMessage();
@@ -121,10 +121,10 @@ if($mesaj){
       <?php
 		try {
 			$db = new PDO($dsn, $user, $password);
-			$city = $db->query("SELECT ID, ADI FROM il ORDER BY ID ASC");
+			$city = $db->query("SELECT ID, il_adi FROM il ORDER BY ID ASC");
 			foreach($city as $row){
 	  ?>
-				<option value="<?= $row['ID'];?>"><?= $row['ADI']; ?></option>
+				<option value="<?= $row['ID'];?>"><?= $row['il_adi']; ?></option>
 
       <?php }
 		} catch (PDOException $e) {

@@ -15,10 +15,10 @@ include_once("config.php");
 <?php
 		$il_id = $_GET['il'];
 
-		$ilce = $db->query("SELECT ID, ADI FROM ilce WHERE IL_ID='$il_id' ORDER BY ID ASC");
+		$ilce = $db->query("SELECT ID, ilce_adi FROM ilce WHERE IL_ID='$il_id' ORDER BY ID ASC");
 		foreach($ilce as $row){
 	  ?>	
-				<option value="<?= $row['ID'];?>"><?= $row['ADI']; ?></option>
+				<option value="<?= $row['ID'];?>"><?= $row['ilce_adi']; ?></option>
       <?php } ?>
 </select>
 

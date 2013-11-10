@@ -158,10 +158,10 @@ if ($_GET['donor'] == 1){
       <?php
 	try {
 		$db = new PDO($dsn, $user, $password);
-		$city = $db->query("SELECT ID, ADI FROM il ORDER BY ID ASC");
+		$city = $db->query("SELECT ID, il_adi FROM il ORDER BY ID ASC");
 		foreach($city as $row){
 	  ?>
-				<option value="<?= $row['ID'];?>"><?= $row['ADI']; ?></option>
+				<option value="<?= $row['ID'];?>"><?= $row['il_adi']; ?></option>
 
       <?php }
 		} catch (PDOException $e) {
