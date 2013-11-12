@@ -2,26 +2,46 @@
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
+?>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+					<th>Adı</th>
+					<th>Soyadı</th>
+					<th>Telefon</th>
+					<th>Cinsiyet</th>
+					<th>Kan Grubu</th>
+					<th>İl</th>
+					<th>İlçe</th>
+					</tr>
+				</thead>
+				<tbody>
 
 
-
-
-
+<?php
 try {
 		$db = new PDO($dsn, $user, $password);
-		$query1 = "SELECT * from institutes";
-		$query2 = "SELECT * FROM donors";
-		$k_sayisi = $db->prepare($query1);
-		$d_sayisi = $db->prepare($query2);
-		$k_sayisi->execute();
-		$d_sayisi->execute();
-		
-		echo $k_sayisi->rowCount(); 
-		echo $d_sayisi->rowCount(); 
+		$kan_id = 5;
+		$il_idsi = 5;
+		$kurum = $db->query("SELECT donors.first_name, donors.last_name, donors.phone_number, donors.gender, il.il_adi, ilce.ilce_adi, blood_groups.name FROM donors INNER JOIN il ON donors.city_id=il.ID INNER JOIN ilce ON donors.district_id=ilce.ID INNER JOIN blood_groups ON donors.blood_group_id=blood_groups.id WHERE blood_groups.id='$kan_id' and il.ID='$il_idsi'");
+		foreach($kurum as $row) {
+					echo "<tr>";
+					echo "<td>".$row['first_name']."</td>";
+					echo "<td>".$row['last_name']."</td>";
+					echo "<td>".$row['phone_number']."</td>";
+					echo "<td>".$row['gender']."</td>";
+					echo "<td>".$row['name']."</td>";
+					echo "<td>".$row['il_adi']."</td>";
+					echo "<td>".$row['ilce_adi']."</td>";
+					echo "</tr>";
+		}
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}
 ?>
+
+</tbody>
+</table>
 
 <?php
 	/*

@@ -3,15 +3,16 @@ include("layout/_head.php");
 include("layout/_header.php");
 ?>
 
-	<br>
-	<br><br>
-	<br>
-	<div class="span6 offset3">
+<br>
+<br><br>
+<br>
+
+<div class="span6 offset3">
 	<form class="form-horizontal">
-<fieldset>
+	<fieldset>
 
 <!-- Form Name -->
-<legend>Kan Bağışçısı  Gİrişi</legend>
+	<legend>Kan Bağışçısı  Gİrişi</legend>
 
 <!-- Text input-->
 <div class="control-group">
@@ -24,7 +25,7 @@ include("layout/_header.php");
 
 <!-- Password input-->
 <div class="control-group">
-  <label class="control-label" for="password">Şİfre</label>
+  <label class="control-label" for="password">Şifre</label>
   <div class="controls">
     <input id="password" name="password" placeholder="Lütfen şifrenizi  giriniz" class="input-large" type="password">
     

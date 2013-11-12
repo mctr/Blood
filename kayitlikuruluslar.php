@@ -20,12 +20,7 @@ include("config.php");
 				<tbody>
 
 <?php
-	//Veritabanı Baglantısı
-	//~ 
-	//~ $dsn = "mysql:host=localhost;dbname=Blood";
-	//~ $user = "root";
-	//~ $password = "";
- 
+	
 	try {
 		$db = new PDO($dsn, $user, $password);
 	} catch (PDOException $e) {
