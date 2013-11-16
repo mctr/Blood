@@ -4,7 +4,7 @@ include_once('config.php');
 ?>
 <?php 
 	try {
-		$db = new PDO($dsn, $user, $password);
+		$db = new PDO($dsn, $dbuser, $dbpassword);
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}

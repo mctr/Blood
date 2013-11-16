@@ -18,7 +18,7 @@ include("layout/_header.php");
 		$password = $_POST['password'];
 		 
 		try {
-			$db = new PDO($dsn, $user, $parola);		
+			$db = new PDO($dsn, $dbuser, $dbparola);		
 		} catch (PDOException $e) {
 			echo "Baglantı hatalı: " . $e->getMessage();
 		}
@@ -38,16 +38,6 @@ include("layout/_header.php");
 	}
 ?>
 
-
-
-
-
-
-
-
-
-
-
 <br><br>
 <div id="wrap">
   <div class="container">
@@ -63,10 +53,10 @@ include("layout/_header.php");
 	    <legend>Kurum Girişi</legend>
 	    <div class="control-group">
 	      <div class="control-label">
-		<label>Kullanıcı Adı :</label>
+		<label>E-mail :</label>
 	      </div>
 	      <div class="controls">
-		<input type="text" name="username" id="inputEmail"
+		<input type="email" name="username" id="inputEmail"
 		placeholder="foobar"  class="input-large">
 	      </div>
 	    </div>

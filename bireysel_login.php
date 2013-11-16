@@ -2,7 +2,7 @@
 include("layout/_head.php");
 include("layout/_header.php");
 
-include("_login.php");
+//include("_login.php");
 ?>
 <?php
 	session_start();
@@ -18,7 +18,7 @@ include("_login.php");
 		$password = $_POST['password'];
 		 
 		try {
-			$db = new PDO($dsn, $user, $parola);		
+			$db = new PDO($dsn, $dbuser, $dbpassword);		
 		} catch (PDOException $e) {
 			echo "Baglantı hatalı: " . $e->getMessage();
 		}
@@ -65,10 +65,10 @@ include("_login.php");
 	    <legend>Bireysel Giriş</legend>
 	    <div class="control-group">
 	      <div class="control-label">
-		<label>Kullanıcı Adı :</label>
+		<label>E-mail :</label>
 	      </div>
 	      <div class="controls">
-		<input type="text" name="username" id="inputEmail"
+		<input type="email" name="username" id="inputEmail"
 		placeholder="foobar"  class="input-large">
 	      </div>
 	    </div>

@@ -20,7 +20,7 @@ include_once('config.php');
 
 <?php
 try {
-		$db = new PDO($dsn, $user, $password);
+		$db = new PDO($dsn, $dbuser, $dbpassword);
 		$kan_id = 5;
 		$il_idsi = 5;
 		$kurum = $db->query("SELECT donors.first_name, donors.last_name, donors.phone_number, donors.gender, il.il_adi, ilce.ilce_adi, blood_groups.name FROM donors INNER JOIN il ON donors.city_id=il.ID INNER JOIN ilce ON donors.district_id=ilce.ID INNER JOIN blood_groups ON donors.blood_group_id=blood_groups.id WHERE blood_groups.id='$kan_id' and il.ID='$il_idsi'");

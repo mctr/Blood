@@ -19,7 +19,7 @@ include_once('config.php');
       <option>Kan Grubu</option>
       <?php
 		try {
-			$db = new PDO($dsn, $user, $password);
+			$db = new PDO($dsn, $dbuser, $dbpassword);
 			$kangruplari = $db->query("SELECT * FROM blood_groups ORDER BY id ASC");
 			foreach($kangruplari as $row){
 		?>
@@ -114,7 +114,7 @@ if ($kan_id != 0) {
 
 <?php
 	try {
-		$db = new PDO($dsn, $user, $password);
+		$db = new PDO($dsn, $dbuser, $dbpassword);
 		$il_id = $_POST['il'];
 		$ilce_id = $_POST['ilce'];
 		$query = "SELECT donors.first_name, donors.last_name, donors.phone_number, donors.gender, il.il_adi,

@@ -36,7 +36,7 @@ include_once('config.php');
 	<br>
 <?php
 	try {
-		$db = new PDO($dsn, $user, $password);
+		$db = new PDO($dsn, $dbuser, $dbpassword);
 		$query1 = "SELECT * from institutes";
 		$query2 = "SELECT * FROM donors";
 

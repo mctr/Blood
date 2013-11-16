@@ -10,7 +10,7 @@ if ($_GET['donor'] == 1){
 		//header("Location:donorol.php");
 	} else {
 		try {
-			$db = new PDO($dsn, $user, $password);
+			$db = new PDO($dsn, $dbuser, $dbpassword);
 			
 			$donorekle = $db->prepare("INSERT INTO donors(tc, blood_group_id, first_name, last_name, email, password_digest, phone_number, gender, birthday, status, city_id, district_id, address) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			$donorekle->bindParam(1, $_POST["tcno"]);
@@ -157,7 +157,7 @@ if ($_GET['donor'] == 1){
       <option value="0">İl Seçiniz</option>
       <?php
 	try {
-		$db = new PDO($dsn, $user, $password);
+		$db = new PDO($dsn, $dbuser, $dbpassword);
 		$city = $db->query("SELECT ID, il_adi FROM il ORDER BY ID ASC");
 		foreach($city as $row){
 	  ?>
