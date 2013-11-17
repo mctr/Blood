@@ -140,7 +140,7 @@ if($mesaj){
   <label class="control-label" for="ilce">İlçe(*)</label>
   <div class="controls">
     <select id="ilce" name="ilce" class="input-large">
-      <option value="0">İlçe Seçiniz</option>
+      <option value="0">Önce İl Seçiniz</option>
     </select>
   </div>
 </div>

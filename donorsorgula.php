@@ -55,7 +55,7 @@ include_once('config.php');
   <label class="control-label" for="ilce">İlçe</label>
   <div class="controls">
     <select id="ilce" name="ilce" class="input-large">
-      <option>İlçe Seçiniz</option>
+      <option>Önce İl Seçiniz</option>
     </select>
   </div>
 </div>
@@ -93,7 +93,7 @@ include_once('config.php');
 </script>
 
 <?php
-			$kan_id = $_POST['kangrubu'];
+$kan_id = $_POST['kangrubu'];
 if ($kan_id != 0) {
 	?>
 	<div id="main">

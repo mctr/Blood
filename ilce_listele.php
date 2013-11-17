@@ -11,7 +11,7 @@ include_once("config.php");
 ?>
 
 <select name="ilce">
-					
+				<option value="0">İlçe Seçiniz</option>	
 <?php
 		$il_id = $_GET['il'];
 

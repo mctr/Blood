@@ -60,7 +60,7 @@ if ($_GET['donor'] == 1){
       <option>Kan Grubu</option>
       <?php
 		try {
-			$db = new PDO($dsn, $user, $password);
+			$db = new PDO($dsn, $dbuser, $dbpassword);
 			$kangruplari = $db->query("SELECT * FROM blood_groups ORDER BY id ASC");
 			foreach($kangruplari as $row){
 		?>
@@ -179,7 +179,7 @@ if ($_GET['donor'] == 1){
   <label class="control-label" for="ilce">İlçe(*)</label>
   <div class="controls">
     <select id="ilce" name="ilce" class="input-large">
-      <option value="0">İlçe Seçiniz</option>
+      <option value="0">Önce İl Seçiniz</option>
       
     </select>
   </div>
