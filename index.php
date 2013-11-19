@@ -56,7 +56,9 @@ include_once('config.php');
 ?>
 
 	<center><h6>Kayıtlı Kuruluş:<?= $kurum_sayisi;?>,Donör Sayısı:<?= $donor_sayisi;?></h6></center>
-	<?php echo $_SESSION['email']."<br>"; ?>
+	<?php echo $_SESSION['admin']."<br>"; ?>
+	<?php echo $_SESSION['donor']."<br>"; ?>
+	<?php echo $_SESSION['kurum']."<br>"; ?>
 	<a href="logout.php">Çıkış yap</a>
 <?php
 include("layout/_footer.php");

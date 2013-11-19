@@ -16,10 +16,10 @@
 	  <li>
 <?php
   session_start();
-  if(isset($_SESSION['username']))
+  if(isset($_SESSION['email']))
   {
 ?>
- <a href="./logout.php"><?php echo $_SESSION['username']; ?> Çıkış Yap</a>
+ <a href="./logout.php"><?php echo $_SESSION['email']; ?> Çıkış Yap</a>
 <?php  } else { ?>
 	<li class="dropdown">
     <a class="dropdown-toggle"
@@ -29,7 +29,7 @@
         <b class="caret"></b>
       </a>
     <ul class="dropdown-menu">
-      <li><a href="donorlogin.php">Bireysel Giriş</a></li>
+      <li><a href="donor_login.php">Donör Girişi</a></li>
       <li><a href="kurum_login.php">Kurum Girişi</a></li>
       <li><a href="login.php">Yönetici Girişi</a></li>
     </ul>

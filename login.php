@@ -2,21 +2,14 @@
 session_start();
 include("layout/_head.php");
 include("layout/_header.php");
-//include '_login.php';
 ?>
-<?php
-if (isset($_SESSION['email'])) {
-	header("Location:connect.php");
-}
-?>
-
 
 
 <?php
 	
 	include 'config.php';
 	
-	if(isset($_SESSION['email']))
+	if(isset($_SESSION['admin']))
 	{
 		header("Location:index.php");
 	}
@@ -37,7 +30,7 @@ if (isset($_SESSION['email'])) {
 		$admin->execute();
 		
 		if ($admin->rowCount() == 1) {
-			$_SESSION['email'] = $username;
+			$_SESSION['admin'] = $username;
 			$error_message = Null;
 			header("Location:index.php");
 		} else {

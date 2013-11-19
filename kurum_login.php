@@ -8,7 +8,7 @@ include("layout/_header.php");
 	session_start();
 	include 'config.php';
 	
-	if(isset($_SESSION['email']))
+	if(isset($_SESSION['kurum']))
 	{
 		header("Location:index.php");
 	}
@@ -29,7 +29,7 @@ include("layout/_header.php");
 		$institute->execute();
 		
 		if ($institute->rowCount() > 0) {
-			$_SESSION['email'] = $username;
+			$_SESSION['kurum'] = $username;
 			$error_message = Null;
 			header("Location:index.php");
 		} else {

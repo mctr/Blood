@@ -130,10 +130,10 @@ if ($kan_id != 0) {
 			$query .= " and ilce.ID='$ilce_id'";
 		}
 
-		$kurum = $db->query($query);
+		$ara = $db->query($query);
 
 
-		foreach($kurum as $row) {
+		foreach($ara as $row) {
 			echo "<tr>";
 			echo "<td>".$row['first_name']."</td>";
 			echo "<td>".$row['last_name']."</td>";

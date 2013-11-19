@@ -1,14 +1,13 @@
 <?php
-include("layout/_head.php");
-include("layout/_header.php");
-
-//include("_login.php");
+session_start();
+include('layout/_head.php');
+include('layout/_header.php');
 ?>
 <?php
-	session_start();
+	
 	include 'config.php';
 	
-	if(isset($_SESSION['email']))
+	if(isset($_SESSION['donor']))
 	{
 		header("Location:index.php");
 	}
@@ -28,8 +27,8 @@ include("layout/_header.php");
 		$donor->bindParam(2,$password);
 		$donor->execute();
 		
-		if ($donors->rowCount() > 0) {
-			$_SESSION['email'] = $username;
+		if ($donor->rowCount() > 0) {
+			$_SESSION['donor'] = $username;
 			$error_message = Null;
 			header("Location:index.php");
 		} else {
@@ -37,15 +36,6 @@ include("layout/_header.php");
 		}
 	}
 ?>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -61,8 +51,8 @@ include("layout/_header.php");
 	  }
 	?>
 	<fieldset class="well">
-	  <form class="form-horizontal" action="" method="post">
-	    <legend>Bireysel Giriş</legend>
+	  <form class="form-horizontal" action="bireysel_login.php" method="post">
+	    <legend>Donör Girişi</legend>
 	    <div class="control-group">
 	      <div class="control-label">
 		<label>E-mail :</label>
