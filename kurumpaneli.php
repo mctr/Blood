@@ -3,7 +3,7 @@ include('layout/_head.php');
 include('layout/_header.php');
 ?>
 
-<div class="tabbable">
+<div class="tabbable tabs-left">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-ok"></i>Menü</a></li>
         <li><a href="#tab2" data-toggle="tab"><i class="icon-info-sign"></i>Kurum Bilgileri</a></li>

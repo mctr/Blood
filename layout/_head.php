@@ -12,13 +12,19 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <style type="text/css" media="all">
       #main {
-			padding-top: 60px;
+			padding-top: 1px;
 		}
 		body {
 			background-image : url(./bootstrap/img/arka6.png)
 		}
 		.alt {
 			padding-bottom: 50px;
+		}
+		.ust_yazi {
+			padding-bottom: 25px;
+		}
+		#sql {
+			padding-top: 70px;
 		}
     </style>
   </head>

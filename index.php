@@ -3,37 +3,39 @@ include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
 ?>
-
-	<br>
-	<br>
 	<div id="main">
+		<center class="ust_yazi"><h3 style="color:red;">Kan Acil Degil Sürekli İhtiyaçtır.</h3></center>
 	<ul class="thumbnails">
 		<div class="span3 offset0.5 thumbnail" >
-		<img src="bootstrap/img/survey.png" alt="">
-		<h3>Bla Bla Bla</h3>
-		<p>Olaylar Olaylar</p>
+		<img src="bootstrap/img/donorol2.jpg" alt=""><br>
+		<h4><center>Haydi Kan Bagışına</center></h4>
+		<p><center><i>Kan üretilemeyen bir dokudur ve halen tek kaynağı sağlıklı bağışçılardır.
+		Bu yüzden sizin de ihtiyacınız olabilir.
+		Donör olmak için hemen kayıt olun.</i></center></p>
 		<center><a href="donorol.php" class="btn btn-primary">Donör Olmak İstiyorum</a></center>
 		</div>
 
 
 		<div class="span3 offset1 thumbnail" >
-		<img src="bootstrap/img/survey.png" alt="">
-		<h3>Bla Bla Bla</h3>
-		<p>Olaylar Olaylar</p>
+		<img src="bootstrap/img/kanara.jpg" alt=""><br>
+		<h4><center>Donör Sorgula</center></h4>
+		<p><center><i>Kana ihtiyacınız oldugunda buradan arama yapıp sistem yöneticileri sayesinde
+		 kan bagışcılarına rahatlıkla ulaşabilirsiniz.
+		 Sorgulayın..</i></center></p>
 		<center><a href="donorsorgula.php" class="btn btn-primary">Donör Sorgula</a></center>
 		</div>	
 	
 		
 		<div class="span3 offset1 thumbnail" >
-		<img src="bootstrap/img/survey.png" alt="">
-		<h3>Bla Bla Bla</h3>
-		<p>Olaylar Olaylar</p>
+		<img src="bootstrap/img/kurum.jpg" alt=""><br>
+		<h4><center>Kayıtlı Kuruluşlar</center></h4>
+		<p><center><i>Sisteme kayıtlı olan kuruluşları görebilirsiniz ve onlardan yardım alabilirsiniz.
+		Sizde bu kurumlardan biri olabilirsiniz.</i></center></p>
 		<center><a href="kayitlikuruluslar.php" class="btn btn-primary">Kayıtlı Kuruluşlar</a></center>
 		</div>
 	</ul>
 	</div>
-	<br>
-	<br>
+
 <?php
 	try {
 		$db = new PDO($dsn, $dbuser, $dbpassword);
@@ -54,8 +56,9 @@ include_once('config.php');
 		echo "Connection failed: " . $e->getMessage();
 	}
 ?>
-
-	<center><h6>Kayıtlı Kuruluş:<?= $kurum_sayisi;?>,Donör Sayısı:<?= $donor_sayisi;?></h6></center>
+	<div id="sql">
+		<center><h6>Kayıtlı Kuruluş: <?= $kurum_sayisi;?> , Donör Sayısı: <?= $donor_sayisi;?></h6></center>
+	</div>
 	<?php echo $_SESSION['admin']."<br>"; ?>
 	<?php echo $_SESSION['donor']."<br>"; ?>
 	<?php echo $_SESSION['kurum']."<br>"; ?>

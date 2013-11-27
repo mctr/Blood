@@ -16,10 +16,10 @@
 	  <li>
 <?php
   session_start();
-  if(isset($_SESSION['email']))
+  if(isset($_SESSION['admin']))
   {
 ?>
- <a href="./logout.php"><?php echo $_SESSION['email']; ?> Çıkış Yap</a>
+ <a href="./logout.php"><i class="icon-user"></i><?php echo $_SESSION['admin']; ?> Çıkış Yap</a>
 <?php  } else { ?>
 	<li class="dropdown">
     <a class="dropdown-toggle"

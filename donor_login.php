@@ -9,7 +9,7 @@ include('layout/_header.php');
 	
 	if(isset($_SESSION['donor']))
 	{
-		header("Location:index.php");
+		header("Location:donorpaneli.php");
 	}
 
 	if(isset($_POST['username']) && isset($_POST['password'])) {
@@ -30,7 +30,7 @@ include('layout/_header.php');
 		if ($donor->rowCount() > 0) {
 			$_SESSION['donor'] = $username;
 			$error_message = Null;
-			header("Location:index.php");
+			header("Location:donorpaneli.php");
 		} else {
 			$error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
 		}
@@ -51,7 +51,7 @@ include('layout/_header.php');
 	  }
 	?>
 	<fieldset class="well">
-	  <form class="form-horizontal" action="bireysel_login.php" method="post">
+	  <form class="form-horizontal" action="donor_login.php" method="post">
 	    <legend>Donör Girişi</legend>
 	    <div class="control-group">
 	      <div class="control-label">

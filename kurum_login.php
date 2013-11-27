@@ -10,7 +10,7 @@ include("layout/_header.php");
 	
 	if(isset($_SESSION['kurum']))
 	{
-		header("Location:index.php");
+		header("Location:kurumpaneli.php");
 	}
 
 	if(isset($_POST['username']) && isset($_POST['password'])) {
@@ -31,7 +31,7 @@ include("layout/_header.php");
 		if ($institute->rowCount() > 0) {
 			$_SESSION['kurum'] = $username;
 			$error_message = Null;
-			header("Location:index.php");
+			header("Location:kurumpaneli.php");
 		} else {
 			$error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
 		}
