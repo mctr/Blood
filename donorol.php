@@ -107,12 +107,8 @@ if ($_GET['donor'] == 1){
   <label class="control-label" for="cinsiyet">Cinsiyet (*)</label>
   <div class="controls">
     <label class="checkbox inline" for="cinsiyet-0">
-      <input name="cinsiyet" id="cinsiyet-0" value="Kadın" type="checkbox">
-      Kadın
-    </label>
-    <label class="checkbox inline" for="cinsiyet-1">
-      <input name="cinsiyet" id="cinsiyet-1" value="Erkek" type="checkbox">
-      Erkek
+      <input type="radio" name="cinsiyet" value="erkek">Erkek
+	  <input type="radio" name="cinsiyet" value="kadin">Kadın 
     </label>
   </div>
 </div>
