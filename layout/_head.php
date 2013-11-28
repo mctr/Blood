@@ -12,7 +12,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <style type="text/css" media="all">
       #main {
-			padding-top: 1px;
+			padding-top: 30px;
 		}
 		body {
 			background-image : url(./bootstrap/img/arka6.png)

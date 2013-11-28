@@ -18,7 +18,7 @@ include("layout/_header.php");
 		$password = $_POST['password'];
 		 
 		try {
-			$db = new PDO($dsn, $dbuser, $dbparola);		
+			$db = new PDO($dsn, $dbuser, $dbpassword);		
 		} catch (PDOException $e) {
 			echo "Baglantı hatalı: " . $e->getMessage();
 		}

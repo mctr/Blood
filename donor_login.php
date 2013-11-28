@@ -30,7 +30,7 @@ include('layout/_header.php');
 		if ($donor->rowCount() > 0) {
 			$_SESSION['donor'] = $username;
 			$error_message = Null;
-			header("Location:donorpaneli.php");
+			header("Location:donor_index.php");
 		} else {
 			$error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
 		}

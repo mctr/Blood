@@ -7,7 +7,6 @@ include('config.php');
 if ($_GET['donor'] == 1){ 
 	if (!$_POST["selectbasic"] || !$_POST["tcno"] || !$_POST["ad"] || !$_POST["soyad"] || !$_POST["cinsiyet"] || !$_POST["dtarihi"] || !$_POST["email"] || !$_POST["telno"] || !$_POST["il"] || !$_POST["ilce"]) {
 		$hata = "Lütfen * lı Alanları boş bırakmayınız";
-		//header("Location:donorol.php");
 	} else {
 		try {
 			$db = new PDO($dsn, $dbuser, $dbpassword);
@@ -106,13 +105,9 @@ if ($_GET['donor'] == 1){
 <div class="control-group">
   <label class="control-label" for="cinsiyet">Cinsiyet (*)</label>
   <div class="controls">
-    <label class="checkbox inline" for="cinsiyet-0">
-      <input name="cinsiyet" id="cinsiyet-0" value="Kadın" type="checkbox">
-      Kadın
-    </label>
-    <label class="checkbox inline" for="cinsiyet-1">
-      <input name="cinsiyet" id="cinsiyet-1" value="Erkek" type="checkbox">
-      Erkek
+     <label class="checkbox inline" for="cinsiyet-0">
+      <input type="radio" name="cinsiyet" value="Erkek">Erkek
+      <input type="radio" name="cinsiyet" value="Kadin">Kadın 
     </label>
   </div>
 </div>

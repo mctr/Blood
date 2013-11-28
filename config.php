@@ -21,7 +21,7 @@
 //~ 
 	//~ $dsn = "mysql:host=mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/;dbname=Blood";
 	//~ $dbuser = "admincLvw1Rc";
-	//~ $dbpassword = "XFCNG16wZwtn";
+	//~ $dbpassword = "12345";
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -32,11 +32,11 @@ date_default_timezone_set('Europe/Istanbul');
 define('MYSQL_HOST',	'localhost');
 define('MYSQL_DB',		'Blood');
 define('MYSQL_USER',	'root');
-define('MYSQL_PASS',	'');
+define('MYSQL_PASS',	'12345');
 
 	require_once 'db.php';
 	
 		$dsn = "mysql:host=localhost;dbname=Blood";
 		$dbuser = "root";
-		$dbpassword = "";
+		$dbpassword = "12345";
 ?>
