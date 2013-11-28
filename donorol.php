@@ -5,19 +5,20 @@ include('config.php');
 ?>
 <?php
 if ($_GET['donor'] == 1){ 
-	if (!$_POST["selectbasic"] || !$_POST["tcno"] || !$_POST["ad"] || !$_POST["soyad"] || !$_POST["cinsiyet"] || !$_POST["dtarihi"] || !$_POST["email"] || !$_POST["telno"] || !$_POST["il"] || !$_POST["ilce"]) {
+	if (!$_POST["selectbasic"] || !$_POST["tc"] || !$_POST["ad"] || !$_POST["soyad"] || !$_POST["cinsiyet"] || !$_POST["dtarihi"] || !$_POST["email"] || !$_POST["telno"] || !$_POST["il"] || !$_POST["ilce"]) {
 		$hata = "Lütfen * lı Alanları boş bırakmayınız";
 	} else {
 		try {
 			$db = new PDO($dsn, $dbuser, $dbpassword);
 			
-			$donorekle = $db->prepare("INSERT INTO donors(tc, blood_group_id, first_name, last_name, email, password_digest, phone_number, gender, birthday, status, city_id, district_id, address) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			$donorekle->bindParam(1, $_POST["tcno"]);
+			$donorekle = $db->prepare("INSERT INTO donors (tc, blood_group_id, first_name, last_name, email, password_digest, phone_number, gender, birthday, status, city_id, district_id, address) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			
+			$donorekle->bindParam(1, $_POST["tc"]);
 			$donorekle->bindParam(2, $_POST["selectbasic"]);
 			$donorekle->bindParam(3, $_POST["ad"]);
 			$donorekle->bindParam(4, $_POST["soyad"]);
 			$donorekle->bindParam(5, $_POST["email"]);
-			$donorekle->bindParam(6, $_POST["tcno"]);
+			$donorekle->bindParam(6, $_POST["tc"]);
 			$donorekle->bindParam(7, $_POST["telno"]);
 			$donorekle->bindParam(8, $_POST["cinsiyet"]);
 			$donorekle->bindParam(9, $_POST["dtarihi"]);
@@ -25,6 +26,7 @@ if ($_GET['donor'] == 1){
 			$donorekle->bindParam(11, $_POST["il"]);
 			$donorekle->bindParam(12, $_POST["ilce"]);
 			$donorekle->bindParam(13, $_POST["adres"]);
+			
 			$donorekle->execute();
 			
 		} catch (PDOException $e) {
@@ -78,7 +80,7 @@ if ($_GET['donor'] == 1){
 <div class="control-group">
   <label class="control-label" for="tcno">Tc Kimlik Numarası (*) :</label>
   <div class="controls">
-    <input id="tcno" name="tcno" placeholder="" class="input-large" type="text">
+    <input id="tcno" name="tc" placeholder="" class="input-large" type="text">
     
   </div>
 </div>
@@ -105,15 +107,9 @@ if ($_GET['donor'] == 1){
 <div class="control-group">
   <label class="control-label" for="cinsiyet">Cinsiyet (*)</label>
   <div class="controls">
-<<<<<<< HEAD
      <label class="checkbox inline" for="cinsiyet-0">
       <input type="radio" name="cinsiyet" value="Erkek">Erkek
       <input type="radio" name="cinsiyet" value="Kadin">Kadın 
-=======
-    <label class="checkbox inline" for="cinsiyet-0">
-      <input type="radio" name="cinsiyet" value="erkek">Erkek
-	  <input type="radio" name="cinsiyet" value="kadin">Kadın 
->>>>>>> 8e4c2309520e1933a83cb7cfb9295e9deb0aae4b
     </label>
   </div>
 </div>

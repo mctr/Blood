@@ -20,7 +20,13 @@
   {
 ?>
  <a href="./logout.php"><i class="icon-user"></i><?php echo $_SESSION['admin']; ?> Çıkış Yap</a>
-<?php  } else { ?>
+<?php  } else if(isset($_SESSION['donor'])) {
+	?>
+	<a href="./logout.php"><i class="icon-user"></i><?php echo $_SESSION['donor']; ?> Çıkış Yap</a>
+<?php }else if (isset($_SESSION['kurum'])) {
+	?>
+	<a href="./logout.php"><i class="icon-user"></i><?php echo $_SESSION['kurum']; ?> Çıkış Yap</a>
+<?php } else { ?>
 	<li class="dropdown">
     <a class="dropdown-toggle"
        data-toggle="dropdown"
