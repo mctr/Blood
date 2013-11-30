@@ -110,6 +110,7 @@ if ($kan_id != 0) {
 					<th>Kan Grubu</th>
 					<th>İl</th>
 					<th>İlçe</th>
+					<th>Son Kar Verme Tarihi</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -120,7 +121,7 @@ if ($kan_id != 0) {
 		$db = new PDO($dsn, $dbuser, $dbpassword);
 		$il_id = $_POST['il'];
 		$ilce_id = $_POST['ilce'];
-		$query = "SELECT donors.first_name, donors.last_name, donors.phone_number, donors.gender, il.il_adi,
+		$query = "SELECT donors.first_name, donors.last_name, donors.phone_number, donors.gender,donors.blood_making_date ,il.il_adi,
 			ilce.ilce_adi, blood_groups.name FROM donors INNER JOIN il ON donors.city_id=il.ID
 			INNER JOIN ilce ON donors.district_id=ilce.ID INNER JOIN
 			blood_groups ON donors.blood_group_id=blood_groups.id WHERE blood_groups.id='$kan_id' ";
@@ -145,6 +146,7 @@ if ($kan_id != 0) {
 			echo "<td>".$row['name']."</td>";
 			echo "<td>".$row['il_adi']."</td>";
 			echo "<td>".$row['ilce_adi']."</td>";
+			echo "<td>".$row['blood_making_date']."</td>";
 			echo "</tr>";
 		}
 	} catch (PDOException $e) {

@@ -22,7 +22,7 @@ include('layout/_header.php');
 			echo "Baglantı hatalı: " . $e->getMessage();
 		}
 		
-		$donor = $db->prepare("SELECT * FROM donors WHERE email=? AND password_digest=?");
+		$donor = $db->prepare("SELECT * FROM donors WHERE status=1 AND email=? AND password_digest=?");
 		$donor->bindParam(1,$username);
 		$donor->bindParam(2,$password);
 		$donor->execute();

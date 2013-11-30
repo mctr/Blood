@@ -102,7 +102,6 @@ if ($kan_id != 0) {
 					<tr>
 					<th>Adı</th>
 					<th>Soyadı</th>
-					<th>Telefon</th>
 					<th>Cinsiyet</th>
 					<th>Kan Grubu</th>
 					<th>İl</th>
@@ -137,7 +136,6 @@ if ($kan_id != 0) {
 			echo "<tr>";
 			echo "<td>".$row['first_name']."</td>";
 			echo "<td>".$row['last_name']."</td>";
-			echo "<td>".$row['phone_number']."</td>";
 			echo "<td>".$row['gender']."</td>";
 			echo "<td>".$row['name']."</td>";
 			echo "<td>".$row['il_adi']."</td>";
