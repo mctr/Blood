@@ -15,7 +15,7 @@ $mmail = $_SESSION['donor'];
 				$ad = $row['first_name'];
 				$soyad = $row['last_name'];
 				$gender = $row['gender'];
-				$kangrubu = $row['kangrubu'];
+				$kangrubu = $row['blood_group_id'];
 				$tcno = $row['tc'];
 				$dtarihi = $row['birtday'];
 			}
