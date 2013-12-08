@@ -11,7 +11,7 @@ include("layout/_header.php");
 	
 	if(isset($_SESSION['admin']))
 	{
-		header("Location:admin.php");
+		header("Location:adminemin.php");
 	}
 
 	if(isset($_POST['username']) && isset($_POST['password'])) {
@@ -24,7 +24,7 @@ include("layout/_header.php");
 			echo "Baglantı hatalı: " . $e->getMessage();
 		}
 		
-		$admin = $db->prepare("SELECT * FROM admins WHERE status= 0 AND email=? AND password_digest=?");
+		$admin = $db->prepare("SELECT * FROM admins WHERE status=0 AND email=? AND password_digest=?");
 		$admin->bindParam(1,$username);
 		$admin->bindParam(2,$password);
 		$admin->execute();
@@ -32,7 +32,7 @@ include("layout/_header.php");
 		if ($admin->rowCount() == 1) {
 			$_SESSION['admin'] = $username;
 			$error_message = Null;
-			header("Location:admin.php");
+			header("Location:adminemin.php");
 		} else {
 			$error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
 		}

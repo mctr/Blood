@@ -19,7 +19,7 @@ include_once('config.php');
       <option>Kan Grubu</option>
       <?php
 		try {
-			$db = new PDO($dsn, $dbuser, $dbpassword);
+			$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 			$kangruplari = $db->query("SELECT * FROM blood_groups ORDER BY id ASC");
 			foreach($kangruplari as $row){
 		?>
@@ -103,6 +103,7 @@ if ($kan_id != 0) {
 	<table class="table table-condensed">
 				<thead>
 					<tr>
+					<th>#</th>
 					<th>Adı</th>
 					<th>Soyadı</th>
 					<th>Telefon</th>
@@ -118,13 +119,13 @@ if ($kan_id != 0) {
 
 <?php
 	try {
-		$db = new PDO($dsn, $dbuser, $dbpassword);
+		$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 		$il_id = $_POST['il'];
 		$ilce_id = $_POST['ilce'];
-		$query = "SELECT donors.first_name, donors.last_name, donors.phone_number, donors.gender,donors.blood_making_date ,il.il_adi,
+		$query = "SELECT donors.id, donors.first_name, donors.last_name, donors.phone_number, donors.gender,donors.blood_making_date ,il.il_adi,
 			ilce.ilce_adi, blood_groups.name FROM donors INNER JOIN il ON donors.city_id=il.ID
 			INNER JOIN ilce ON donors.district_id=ilce.ID INNER JOIN
-			blood_groups ON donors.blood_group_id=blood_groups.id WHERE blood_groups.id='$kan_id' ";
+			blood_groups ON donors.blood_group_id=blood_groups.id WHERE donors.status=1 and blood_groups.id='$kan_id' ";
 
 		if ($il_id != 0) {
 			$query .= " and il.ID='$il_id'";
@@ -139,6 +140,7 @@ if ($kan_id != 0) {
 
 		foreach($ara as $row) {
 			echo "<tr>";
+			echo "<td>".$row['id']."</td>";
 			echo "<td>".$row['first_name']."</td>";
 			echo "<td>".$row['last_name']."</td>";
 			echo "<td>".$row['phone_number']."</td>";
@@ -147,6 +149,8 @@ if ($kan_id != 0) {
 			echo "<td>".$row['il_adi']."</td>";
 			echo "<td>".$row['ilce_adi']."</td>";
 			echo "<td>".$row['blood_making_date']."</td>";
+			echo "<td>".'<a href="donor_bilgi.php?donor_id='.$row['id'].'"><i class="icon-search"></i></a>'."</td>";
+			echo "<td>".'<a href="donor_bilgi.php?donor_id='.$row['id'].'"><i class="icon-trash"></i></a>'."</td>";
 			echo "</tr>";
 		}
 	} catch (PDOException $e) {

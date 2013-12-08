@@ -1,5 +1,6 @@
 <?php
 session_start();
+if ($_SESSION['donor']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
@@ -16,4 +17,8 @@ include_once('config.php');
 
 <?php
 include('layout/_footer.php');
+} else {
+	header("Location:donor_login.php");
+} 
+
 ?>

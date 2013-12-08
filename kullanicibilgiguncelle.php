@@ -1,5 +1,6 @@
 <?php
 session_start();
+if ($_SESSION['donor']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
@@ -18,6 +19,12 @@ $mmail = $_SESSION['donor'];
 				$kangrubu = $row['blood_group_id'];
 				$tcno = $row['tc'];
 				$dtarihi = $row['birtday'];
+			}
+			
+			$kan_grubu = "SELECT * FROM blood_groups WHERE id='$kangrubu'";
+			$yap = $db->query($kan_grubu);
+			foreach($yap as $row) {
+				$donor_kan = $row['name'];
 			}
 			
 			
@@ -82,15 +89,20 @@ $mmail = $_SESSION['donor'];
 			<div class="control-group">
 			 <label class="control-label" for="kangrubu">Kan Grubu</label>
 				<div class="controls">
-					<select id="kangrubu" name="kangrubu" class="input-large" value="<?=$kangrubu?>">
-						 <option>A Rh(+)</option>
-						 <option>A Rh(-)</option>
-						 <option>B Rh(+)</option>
-						 <option>B Rh(-)</option>
-						 <option>AB Rh(+)</option>
-						 <option>AB Rh(-)</option>
-						 <option>0 Rh(+)</option>
-						 <option>0 Rh(-)</option>
+					<select id="kangrubu" name="kangrubu" class="input-large" >
+						 <option value="<?=$kangrubu?>"><?=$donor_kan?></option>
+						  <?php
+							try {
+								$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
+								$kangruplari = $db->query("SELECT * FROM blood_groups ORDER BY id ASC");
+								foreach($kangruplari as $row){
+							?>
+								 <option value="<?= $row['id']?>"><?= $row['name'] ?></option>
+						<?php	}
+							} catch (PDOException $e) {
+								echo "Connection failed: " . $e->getMessage();
+							}
+						?>
 					</select>
 				</div>
 			</div>
@@ -125,9 +137,8 @@ $mmail = $_SESSION['donor'];
 <a href="donor_index.php" class="btn btn-inverse"><-- Geri</a>
 
 <?php
-//~ if ($_SESSION['ad']){
-	//~ echo $_SESSION['ad'];
-	//~ echo $_SESSION['soyad'];
-//~ }
 include_once('layout/_footer.php');
+} else {
+	header("Location:donor_login.php");
+}
 ?>

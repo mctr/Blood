@@ -19,13 +19,44 @@
   if(isset($_SESSION['admin']))
   {
 ?>
- <a href="./logout.php"><i class="icon-user"></i><?php echo $_SESSION['admin']; ?> Çıkış Yap</a>
-<?php  } else if(isset($_SESSION['donor'])) {
-	?>
-	<a href="./logout.php"><i class="icon-user"></i><?php echo $_SESSION['donor']; ?> Çıkış Yap</a>
-<?php }else if (isset($_SESSION['kurum'])) {
-	?>
-	<a href="./logout.php"><i class="icon-user"></i><?php echo $_SESSION['kurum']; ?> Çıkış Yap</a>
+<li class="dropdown">
+    <a class="dropdown-toggle"
+       data-toggle="dropdown"
+       href="#">
+        <i class="icon-user"></i><?php echo $_SESSION['admin']; ?>
+        <b class="caret"></b>
+      </a>
+    <ul class="dropdown-menu">
+      <li><a href="adminemin.php">Anasayfa</a></li>
+      <li><a href="logout.php">Çıkış Yap</a></li>
+    </ul>
+  </li>
+<?php  } else if(isset($_SESSION['donor'])) { ?>
+	<li class="dropdown">
+    <a class="dropdown-toggle"
+       data-toggle="dropdown"
+       href="#">
+        <i class="icon-user"></i><?php echo $_SESSION['donor']; ?>
+        <b class="caret"></b>
+      </a>
+    <ul class="dropdown-menu">
+      <li><a href="donor_index.php">Anasayfa</a></li>
+      <li><a href="logout.php">Çıkış Yap</a></li>
+    </ul>
+  </li>
+<?php }else if (isset($_SESSION['kurum'])) { ?>
+	<li class="dropdown">
+    <a class="dropdown-toggle"
+       data-toggle="dropdown"
+       href="#">
+        <i class="icon-user"></i><?php echo $_SESSION['kurum']; ?>
+        <b class="caret"></b>
+      </a>
+    <ul class="dropdown-menu">
+      <li><a href="kurum_index.php">Anasayfa</a></li>
+      <li><a href="logout.php">Çıkış Yap</a></li>
+    </ul>
+  </li>
 <?php } else { ?>
 	<li class="dropdown">
     <a class="dropdown-toggle"

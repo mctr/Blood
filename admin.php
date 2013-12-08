@@ -32,7 +32,7 @@ if ($_GET['onaylı_donor_sil_id']) {
 		
 		$statement->execute();
 		
-		header("Location:admin.php?onaylı_donor_listele=1");
+		header("Location:admin.php?onaylı_donorler=1");
 		
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
@@ -513,7 +513,190 @@ $id = $_GET['kurum_edit_id'];
 </div>
 <div class="span2"><a href="admin.php?kayıtlı_kurumlar=1" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
 
-<?php } ?>
+<?php } if ($_GET['onaylı_donorler'] == 1) {?>
+	
+	<div class="span12 alt">
+<div class="span10 offset1">
+	<center><h1>Onaylı Donörler</h1></center><br>
+<table class="table table-bordered">
+				<thead>
+					<tr>
+					<th>id</th>
+					<th>Adı</th>
+					<th>Soyadı</th>
+					<th>E-mail</th>
+					<th>Düzenle</th>
+					<th>Sil</th>
+				</tr>
+				</thead>
+				<tbody>
+<?php
+	try {
+		$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
+		$query = "SELECT id,first_name, last_name, email FROM donors WHERE status = 1";
+
+		$listele = $db->query($query);
+
+
+		foreach($listele as $row) {
+			echo "<tr>";
+			echo "<td>".$row['id']."</td>";
+			echo "<td>".$row['first_name']."</td>";
+			echo "<td>".$row['last_name']."</td>";
+			echo "<td>".$row['email']."</td>";
+			echo "<td>".'<a href="admin.php?donor_edit_id='.$row['id'].'"><i class="icon-edit"></i></a>'."</td>";
+			echo "<td>".'<a href="admin.php?onaylı_donor_sil_id='.$row['id'].'"><i class="icon-trash"></i></a>'."</td>";
+			echo "</tr>";
+		}
+	} catch (PDOException $e) {
+		echo "Connection failed: " . $e->getMessage();
+	}
+	
+?>
+			</tbody>
+	</table>
+</div>
+<div class="span2"><a href="adminemin.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
+
+<? } if ($_GET['donor_edit_id']) {?>
+	<?php
+		$id = $_GET['donor_edit_id'];
+
+	try {
+			$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
+			$query18 = "SELECT * FROM donors WHERE id='$id'";
+			$hop = $db->query($query18);
+			foreach($hop as $row) {
+				$ad = $row['first_name'];
+				$soyad = $row['last_name'];
+				$gender = $row['gender'];
+				$kangrubu = $row['blood_group_id'];
+				$tcno = $row['tc'];
+				$dtarihi = $row['birtday'];
+			}
+			
+			$kan_grubu = "SELECT * FROM blood_groups WHERE id='$kangrubu'";
+			$yap = $db->query($kan_grubu);
+			foreach($yap as $row) {
+				$donor_kan = $row['name'];
+			} 
+			
+			
+		} catch (PDOException $e) {
+			echo "Connection failed: " . $e->getMessage();
+		}
+		
+		if ($_POST['update'] == 1) {
+			$y_tc = $_POST['tcno'];
+			$y_kan = $_POST['kangrubu'];
+			$y_ad = $_POST['ad'];
+			$y_soyad = $_POST['soyad'];
+			$y_cinsiyet = $_POST['cinsiyet'];
+			
+			$guncelle = $db->prepare("UPDATE donors SET tc='$y_tc', blood_group_id='$y_kan', first_name='$y_ad', last_name='$y_soyad', gender='$y_cinsiyet' WHERE id='$id'");
+			
+			//~ $guncelle->bindParam(1, $_POST['tcno']);
+			//~ $guncelle->bindParam(2, $_POST['kangrubu']);
+			//~ $guncelle->bindParam(3, $_POST['ad']);
+			//~ $guncelle->bindParam(4, $_POST['soyad']);
+			//~ $guncelle->bindParam(5, $_POST['cinsiyet']);
+			
+			
+			$guncelle->execute();
+			
+			$hata = "Başarılı Güncelleme yaptınız.";
+		}
+?>
+
+
+
+<div class="offset1">
+<legend class="span8">Kullanıcı Bİlgileri Güncelleme Ekranı</legend>
+<p>
+	
+
+<form class="form-horizontal" id="registerHere1" name="registerHere2" method="post" action="admin.php?donor_edit_id=<?=$id?>">
+    <fieldset>
+		<?php
+	if ($hata) {
+		echo "<center class='alert alert-success'>$hata</center>";
+	}
+?>
+<input type="hidden" name="update" value="1" />
+		<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="ad">Ad (*)</label>
+				<div class="controls">
+					<input id="ad" name="ad" placeholder="" class="input-large" type="text" value="<?=$ad?>">
+				</div>
+			</div>
+
+		<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="soyad">Soyad (*)</label>
+				<div class="controls">
+					<input id="soyad" name="soyad" placeholder="" class="input-large" type="text" value="<?=$soyad?>">
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="cinsiyet">Cinsiyet (*)</label>
+				<div class="controls">
+					<input id="cinsiyet" name="cinsiyet" placeholder="" class="input-large" type="text" value="<?=$gender?>">
+				</div>
+			</div>
+
+			<!-- Select Basic -->
+			<div class="control-group">
+			 <label class="control-label" for="kangrubu">Kan Grubu</label>
+				<div class="controls">
+					<select id="kangrubu" name="kangrubu" class="input-large" >
+						 <option value="<?=$kangrubu?>"><?=$donor_kan?></option>
+							  <?php
+								try {
+									$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
+									$kangruplari = $db->query("SELECT * FROM blood_groups ORDER BY id ASC");
+									foreach($kangruplari as $row){
+								?>
+									 <option value="<?= $row['id']?>"><?= $row['name'] ?></option>
+							<?php	}
+								} catch (PDOException $e) {
+									echo "Connection failed: " . $e->getMessage();
+								}
+							?>
+					</select>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+				<label class="control-label" for="tcno">Tc Kimlik Numarası (*)</label>
+					<div class="controls">
+						<input id="tcno" name="tcno" placeholder="" class="input-large" type="text" value="<?=$tcno?>">
+					</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="dogumtarihi">Doğum Tarihi (*)</label>
+				<div class="controls">
+					<input id="dogumtarihi" name="dogumtarihi" class="input-large" type="date" value="<?=$dtarihi?>">
+					<p class="help-block">Örneğin : 08.03.1992</p>
+				</div>
+			</div>
+			<!-- Button -->
+			<div class="control-group">
+			  <label class="control-label" for="guncelle"></label>
+			    <div class="controls">
+					<button id="guncelle" name="guncelle" class="btn btn-primary">Güncelle</button>
+				</div>
+			</div>
+	</fieldset>
+</form>
+</div>
+<div class="span2"><a href="admin.php?onaylı_donorler=1" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
+<? } ?>
 </div>
 
 <?php

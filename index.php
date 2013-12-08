@@ -39,8 +39,8 @@ include_once('config.php');
 <?php
 	try {
 		$db = new PDO($dsn, $dbuser, $dbpassword);
-		$query1 = "SELECT * from institutes";
-		$query2 = "SELECT * FROM donors";
+		$query1 = "SELECT * from institutes WHERE status=1";
+		$query2 = "SELECT * FROM donors WHERE status=1";
 
 		$k_sayisi = $db->prepare($query1);
 		$d_sayisi = $db->prepare($query2);
@@ -59,10 +59,6 @@ include_once('config.php');
 	<div id="sql">
 		<center><h6>Kayıtlı Kuruluş: <?= $kurum_sayisi;?> , Donör Sayısı: <?= $donor_sayisi;?></h6></center>
 	</div>
-	<?php echo $_SESSION['admin']."<br>"; ?>
-	<?php echo $_SESSION['donor']."<br>"; ?>
-	<?php echo $_SESSION['kurum']."<br>"; ?>
-	<a href="logout.php">Çıkış yap</a>
 <?php
 include("layout/_footer.php");
 ?>

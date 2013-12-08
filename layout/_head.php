@@ -15,7 +15,7 @@
 			padding-top: 30px;
 		}
 		body {
-			background-image : url(./bootstrap/img/arka6.png)
+			background-image : url(./bootstrap/img/duvar.png)
 		}
 		.alt {
 			padding-bottom: 50px;

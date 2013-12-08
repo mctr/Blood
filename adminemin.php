@@ -4,7 +4,7 @@ include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
 try {
-		$db = new PDO($dsn, $dbuser, $dbpassword);
+		$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 		$kurum = "SELECT * From institutes WHERE status=1";
 		$kurum_bekleyen = "SELECT * From institutes WHERE status=2";
 		$donor = "SELECT * FROM donors WHERE status=1";
@@ -75,20 +75,22 @@ try {
       <td>Donörler</td>
       <td><?=$d_sayisi->rowCount()?></td>
       <td>
-        <a href="admin.php?onaylı_donorler">Listele</a>
+        <a href="admin.php?onaylı_donorler=1">Listele</a>
         <? if ($d_b_sayisi->rowCount() > 0) { ?>
 			| <a href="admin.php?donor_listele=1"><span class="badge btn-danger">Onay Bekleyen Yeni Bir Donör Var</span></a>
 		<? } ?> 
       </td>
     </tr>
+<!--
     <tr>
       <td>Donör Özel İstekleri</td>
-      <td><?=$req_sayisi->rowCount()?></td>
+      <td><? //=$req_sayisi->rowCount()?></td>
       <td>
-        <a href="/admin/donorrequests">Listele</a>
-        | <a href="/admin/donorrequests"><span class="badge badge-error">Dönör Özel İsteği Var</span></a>
+        <?// if ($req_sayisi->rowCount() > 0) { ?>
+			<a href="admin.php?donor_istek=1"><span class="badge btn-danger">Dönör Özel İsteği Var</span></a>
+		<? //} ?>
       </td>
-    </tr>
+    </tr>-->
     <tr>
       <td>Kayıtlı Kan Verme</td>
       <td>Kayıtlı Kan verme sayısı</td>
@@ -98,58 +100,6 @@ try {
     </tr>
   </tbody>
 </table>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>İstatistikler</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Tüm İstatistikler</td>
-      <td><a href="/admin/statistic">Listele</a></td>
-    </tr>
-    <tr>
-      <td>Rollere Göre Kurum ve Kuruluş İstatistikleri</td>
-      <td><a href="/admin/statistic?static=role_institute">Listele</a></td>
-    </tr>
-    <tr>
-      <td>Kan Grubuna Göre Donör İstatistikleri</td>
-      <td><a href="/admin/statistic?static=blood_donor">Listele</a></td>
-    </tr>
-    <tr>
-      <td>İllere Göre Donör İstatistikleri</td>
-      <td><a href="/admin/statistic?static=city_donor">Listele</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Sorgulama Biçimleri</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Misafir Sorgulaması Sayısı</td>
-      <td><%= Search.all(:conditions => {:institute_id => 0}).count %></td>
-    </tr>
-    <tr>
-      <td>Kurum Sorgulaması Sayısı</td>
-      <td><%= Search.where('institute_id not in (?)', [0, 999]).count %></td>
-    </tr>
-    <tr>
-      <td>Kurum Pdf Dökümü</td>
-      <td><%= Search.all(:conditions => {:institute_id => 999}).count %></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
 <?php
 include("layout/_footer.php");
 ?>
