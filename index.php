@@ -6,7 +6,7 @@ include_once('config.php');
 	<div id="main">
 		<center class="ust_yazi"><h3 style="color:red;">Kan Acil Degil Sürekli İhtiyaçtır.</h3></center>
 	<ul class="thumbnails">
-		<div class="span3 offset0.5 thumbnail" >
+		<div class="span3 thumbnail" >
 		<img src="bootstrap/img/donorol2.jpg" alt=""><br>
 		<h4><center>Haydi Kan Bagışına</center></h4>
 		<p><center><i>Kan üretilemeyen bir dokudur ve halen tek kaynağı sağlıklı bağışçılardır.

@@ -183,10 +183,6 @@ $mmail = $_SESSION['kurum'];
 <a href="kurum_index.php" class="btn btn-inverse"><-- Geri</a>
 
 <?php
-//~ if ($_SESSION['ad']){
-	//~ echo $_SESSION['ad'];
-	//~ echo $_SESSION['soyad'];
-//~ }
 include_once('layout/_footer.php');
 ?>
 

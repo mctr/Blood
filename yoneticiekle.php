@@ -1,7 +1,7 @@
 <?php
-include("layout/_head.php");
-include("layout/_header.php");
-include("config.php");
+include('layout/_head.php');
+include('layout/_header.php');
+include('config.php');
 ?>
 
 <?php
@@ -110,7 +110,7 @@ if($_GET['kayit'] == 1) {
 
 </fieldset>
 </form>
-
+<div class="span2"><a href="adminemin.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
 <?php
 include('layout/_footer.php');
 ?>
