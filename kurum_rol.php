@@ -1,10 +1,12 @@
 <?php
+session_start();
+if ($_SESSION['admin']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include('config.php');
 if ($_GET['rol_ekleme'] == 1) {
 	
-	if ($_GET['rol_ekle'] == 1) {
+	if ($_POST['rol_ekle'] == 1) {
 		try {
 			$db = new PDO($dsn, $dbuser, $dbpassword);	
 			$sql = "INSERT INTO roles (institute_name) VALUES (?)";
@@ -18,7 +20,7 @@ if ($_GET['rol_ekleme'] == 1) {
 		}
 	}
 ?>
-<form class="form-horizontal" action="kurum_rol.php?rol_ekle=1" method="post">
+<form class="form-horizontal" action="kurum_rol.php?rol_ekleme=1" method="post">
 <fieldset>
 <legend>Kurum Rolü Ekle</legend>
 
@@ -35,7 +37,7 @@ if ($mesaj){
     
   </div>
 </div>
-
+<input type="hidden" name="rol_ekle" value="1" />
 <!-- Button -->
 <div class="control-group">
   <label class="control-label" for="rolekle"></label>
@@ -46,7 +48,7 @@ if ($mesaj){
 
 </fieldset>
 </form>
-<div class="span2"><a href="adminemin.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
+<div class="span2"><a href="admin.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
 
 <?php
 } 
@@ -103,9 +105,12 @@ if ($mesaj){
 
 </fieldset>
 </form>
-<div class="span2"><a href="admin.php?kurum_rol_listele=1" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
+<div class="span2"><a href="admin_process.php?kurum_rol_listele=1" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
 	
 <? } ?>
 <?php
+} else {
+	header("Location:login.php");
+}
 include('layout/_footer.php');
 ?>

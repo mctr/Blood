@@ -1,10 +1,11 @@
 <?php
+session_start();
+if ($_SESSION['admin']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include('config.php');
 
-$id = $_GET['admin_edit_id'];
-//if($_GET['admin_edit_id']) {	
+$id = $_GET['admin_edit_id'];	
 	try {
 		$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 		$query1 = "SELECT * FROM admins WHERE id='$id'";
@@ -89,7 +90,10 @@ if ($hata) {
 <center><input type="submit" class="btn btn-primary" value="Güncelle" /></center>
 </fieldset>
 </form>
-<div class="span2"><a href="admin.php?admin_listele=1" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
+<div class="span2"><a href="admin_process.php?admin_listele=1" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
 <?php
+} else {
+	header("Location:login.php");
+}
 include('layout/_footer.php');
 ?>

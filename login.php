@@ -11,7 +11,7 @@ include("layout/_header.php");
 	
 	if(isset($_SESSION['admin']))
 	{
-		header("Location:adminemin.php");
+		header("Location:admin.php");
 	}
 
 	if(isset($_POST['username']) && isset($_POST['password'])) {
@@ -32,7 +32,7 @@ include("layout/_header.php");
 		if ($admin->rowCount() == 1) {
 			$_SESSION['admin'] = $username;
 			$error_message = Null;
-			header("Location:adminemin.php");
+			header("Location:admin.php");
 		} else {
 			$error_message = "Eksik yada Yanlış Bilgi Girdiniz!";
 		}

@@ -1,4 +1,6 @@
 <?php
+session_start();
+if ($_SESSION['admin']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include('config.php');
@@ -110,7 +112,10 @@ if($_GET['kayit'] == 1) {
 
 </fieldset>
 </form>
-<div class="span2"><a href="adminemin.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
+<div class="span2"><a href="admin.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
 <?php
+} else {
+	header("Location:login.php");
+}
 include('layout/_footer.php');
 ?>

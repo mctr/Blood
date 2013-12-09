@@ -3,11 +3,14 @@
     <div class="container">
       <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
       </button>
-      <a class="brand" href="./index.php">Kan Merkezi</a>
+      <a class="brand" href="index.php">Kan Merkezi</a>
       <div class="nav-collapse collapse">
-	<!--<ul class="nav">
+	<ul class="nav">
 	  <li class="">
-	  <a href="./index.php">Anasayfa</a>
+		  <li><a href="iletisim.php">İletişim</a></li>
+	  </li>
+	</ul>
+	  <!--<a href="./index.php">Anasayfa</a>
 	  </li>
 	  <li><a href="#">Hakkımızda</a></li>
 	  <li><a href="#">İletişim</a></li>
@@ -27,7 +30,8 @@
         <b class="caret"></b>
       </a>
     <ul class="dropdown-menu">
-      <li><a href="adminemin.php">Anasayfa</a></li>
+      <li><a href="admin.php">Anasayfa</a></li>
+      <li><a href="donorbulma.php">Donör Ara</a></li>
       <li><a href="logout.php">Çıkış Yap</a></li>
     </ul>
   </li>

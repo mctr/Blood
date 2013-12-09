@@ -1,5 +1,6 @@
 <?php
 session_start();
+if ($_SESSION['kurum']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
@@ -88,4 +89,7 @@ if ($_GET['change'] == 1) {
 
 <?php
 include('layout/_footer.php');
+} else {
+	header("Location:kurum_login.php");
+}
 ?>

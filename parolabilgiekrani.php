@@ -1,5 +1,6 @@
 <?php
 session_start();
+if ($_SESSION['donor']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
@@ -87,5 +88,8 @@ if ($_GET['change'] == 1) {
 <a href="donor_index.php" class="btn btn-inverse"><-- Geri</a>
 
 <?php
+} else {
+	header("Location:donor_login.php");
+}
 include('layout/_footer.php');
 ?>

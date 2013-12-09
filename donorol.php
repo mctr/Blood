@@ -32,7 +32,7 @@ if ($_GET['donor'] == 1){
 		} catch (PDOException $e) {
 			echo "Connection failed: " . $e->getMessage();
 		}
-		$hata = "Başarılı bir şekilde kayıtlandınız";
+		$mesaj = "Kaydınız Sistem Yöneticisinin onayına gitmiştir.Onaylandıktan sonra Giriş Yapbilirsiniz";
 	}
 }
 	
@@ -53,6 +53,9 @@ if ($_GET['donor'] == 1){
 	if ($hata) {
 		echo "<center class='alert alert-error'>$hata</center>";
 	}
+	if ($mesaj) {
+		echo "<center class='alert alert-success'>$mesaj</center>";
+	}
 ?>
 <div class="control-group">
   <label class="control-label" for="selectbasic">Kan Grubu (*) :</label>
@@ -61,7 +64,7 @@ if ($_GET['donor'] == 1){
       <option>Kan Grubu</option>
       <?php
 		try {
-			$db = new PDO($dsn, $dbuser, $dbpassword);
+			$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 			$kangruplari = $db->query("SELECT * FROM blood_groups ORDER BY id ASC");
 			foreach($kangruplari as $row){
 		?>
@@ -154,7 +157,7 @@ if ($_GET['donor'] == 1){
       <option value="0">İl Seçiniz</option>
       <?php
 	try {
-		$db = new PDO($dsn, $dbuser, $dbpassword);
+		$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 		$city = $db->query("SELECT ID, il_adi FROM il ORDER BY ID ASC");
 		foreach($city as $row){
 	  ?>

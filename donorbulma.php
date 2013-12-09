@@ -1,4 +1,6 @@
 <?php
+session_start();
+if ($_SESSION['kurum'] || $_SESSION['admin']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
@@ -149,8 +151,8 @@ if ($kan_id != 0) {
 			echo "<td>".$row['il_adi']."</td>";
 			echo "<td>".$row['ilce_adi']."</td>";
 			echo "<td>".$row['blood_making_date']."</td>";
-			echo "<td>".'<a href="donor_bilgi.php?donor_id='.$row['id'].'"><i class="icon-search"></i></a>'."</td>";
-			echo "<td>".'<a href="kanvermekayit.php?donor_id='.$row['id'].'"><i class="icon-trash"></i></a>'."</td>";
+			echo "<td>".'<a href="donor_bilgi.php?donor_id='.$row['id'].'"><i class="icon-info-sign"></i></a>'."</td>";
+			echo "<td>".'<a href="kanvermekayit.php?donor_id='.$row['id'].'"><i class="icon-pencil"></i></a>'."</td>";
 			echo "</tr>";
 		}
 	} catch (PDOException $e) {
@@ -167,4 +169,7 @@ if ($kan_id != 0) {
 
 <?php
 	include_once("layout/_footer.php");
+} else {
+	header("Location:kurum_login.php");
+}
 ?>

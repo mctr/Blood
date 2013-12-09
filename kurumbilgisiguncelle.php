@@ -1,5 +1,6 @@
 <?php
 session_start();
+if ($_SESSION['kurum']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
@@ -20,22 +21,36 @@ $mmail = $_SESSION['kurum'];
 				$ilce = $row['district_id'];
 				$address = $row['address'];
 			}
-			
+			$il_sor = "SELECT * FROM il WHERE ID='$il'";
+			$il_sor_yap = $db->query($il_sor);
+			foreach($il_sor_yap as $row) {
+				$il_adi = $row['il_adi'];
+			}
+			$ilce_sor = "SELECT * FROM ilce WHERE ID='$ilce'";
+			$ilce_sor_yap = $db->query($ilce_sor);
+			foreach($ilce_sor_yap as $row) {
+				$ilce_adii = $row['ilce_adi'];
+			}
+			$kurum_sor = "SELECT * FROM roles WHERE id='$rol'";
+			$kurum_sor_yap = $db->query($kurum_sor);
+			foreach($kurum_sor_yap as $row) {
+				$kurum_tipi = $row['institute_name'];
+			}
 		
 		} catch (PDOException $e) {
 			echo "Connection failed: " . $e->getMessage();
 		}
 		
 		if ($_GET['update'] == 1) {
-			$guncelle = $db->prepare("UPDATE institutes SET  name=?, phone_number=?, address=?  WHERE email='$mmail'");
+			$guncelle = $db->prepare("UPDATE institutes SET  name=?, role_id,city_id=?, phone_number=?, address=?  WHERE email='$mmail'");
 			
 			
 			$guncelle->bindParam(1, $_POST['kurumadi']);
-			//$guncelle->bindParam(2, $_POST['kurumtipi']);
-			//$guncelle->bindParam(3, $_POST['il']);
+			$guncelle->bindParam(2, $_POST['kurumtipi']);
+			$guncelle->bindParam(3, $_POST['il']);
 			//$guncelle->bindParam(4, $_POST['ilce']);
-			$guncelle->bindparam(2, $_POST['telno']);
-			$guncelle->bindparam(3, $_POST['adres']);
+			$guncelle->bindparam(4, $_POST['telno']);
+			$guncelle->bindparam(5, $_POST['adres']);
 			$guncelle->execute();
 			
 			$hata = "Başarılı Güncelleme yaptınız.";
@@ -69,10 +84,10 @@ $mmail = $_SESSION['kurum'];
   <label class="control-label" for="kurumtipi">Kurum Tipi (*)</label>
   <div class="controls">
     <select id="kurumtipi" name="kurumtipi" class="input-large">
-      <option value="0" >Kurumunuzun Tipi</option>
+      <option value="<?=$rol?>"><?=$kurum_tipi?></option>
       <?php
 		try {
-			$db = new PDO($dsn, $dbuser, $dbpassword);
+			$db = new PDO($dsn, $dbuser, $dbpassword,array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 			$kurumtipi = $db->query("SELECT * FROM roles ORDER BY id ASC");
 			foreach($kurumtipi as $row){
 		?>
@@ -107,10 +122,10 @@ $mmail = $_SESSION['kurum'];
   <label class="control-label" for="il">İl(*)</label>
   <div class="controls">
     <select onChange="ilceListele(this.value)" id="il" name="il" class="input-large" value="<?=$il?>">
-      <option value="0">İl Seçiniz</option>
+      <option value="<?=$il?>"><?=$il_adi?></option>
       <?php
 	try {
-		$db = new PDO($dsn, $dbuser, $dbpassword);
+		$db = new PDO($dsn, $dbuser, $dbpassword,array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 		$city = $db->query("SELECT ID, il_adi FROM il ORDER BY ID ASC");
 		foreach($city as $row){
 	  ?>
@@ -131,8 +146,8 @@ $mmail = $_SESSION['kurum'];
 <div class="control-group">
   <label class="control-label" for="ilce">İlçe(*)</label>
   <div class="controls">
-    <select id="ilce" name="ilce" class="input-large" value="<?$ilce?>">
-      <option value="0">Önce İl Seçiniz</option>
+    <select id="ilce" name="ilce" class="input-large">
+      <option value="<?=$ilce?>"><?=$ilce_adii?></option>
       
     </select>
   </div>
@@ -184,6 +199,9 @@ $mmail = $_SESSION['kurum'];
 
 <?php
 include_once('layout/_footer.php');
+} else {
+	header("Location:kurum_login.php");
+}
 ?>
 
 

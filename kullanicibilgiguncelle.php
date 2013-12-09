@@ -58,7 +58,7 @@ $mmail = $_SESSION['donor'];
     <fieldset>
 		<?php
 	if ($hata) {
-		echo "<center class='alert alert-error'>$hata</center>";
+		echo "<center class='alert alert-success'>$hata</center>";
 	}
 ?>
 		<!-- Text input-->

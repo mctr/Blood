@@ -7,7 +7,7 @@ include('config.php');
 <?php
 if($_GET['kayit'] == 1) {
 	try {
-			$db = new PDO($dsn, $dbuser, $dbpassword);	
+			$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));	
 			if ($_POST['kurumadi'] && $_POST['kurumtipi'] && $_POST['email'] && $_POST['il'] && $_POST['ilce'] && $_POST['parola']) {
 				if ($_POST['parola'] == $_POST['parolatekrar']){	
 					
@@ -74,7 +74,7 @@ if($mesaj){
       <option value="0" >Kurumunuzun Tipi</option>
       <?php
 		try {
-			$db = new PDO($dsn, $dbuser, $dbpassword);
+			$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 			$kurumtipi = $db->query("SELECT * FROM roles ORDER BY id ASC");
 			foreach($kurumtipi as $row){
 		?>
@@ -120,7 +120,7 @@ if($mesaj){
       <option value="0">İl Seçiniz</option>
       <?php
 		try {
-			$db = new PDO($dsn, $dbuser, $dbpassword);
+			$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));
 			$city = $db->query("SELECT ID, il_adi FROM il ORDER BY ID ASC");
 			foreach($city as $row){
 	  ?>

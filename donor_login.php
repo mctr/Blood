@@ -9,7 +9,7 @@ include('layout/_header.php');
 	
 	if(isset($_SESSION['donor']))
 	{
-		header("Location:donorpaneli.php");
+		header("Location:donor_index.php");
 	}
 
 	if(isset($_POST['username']) && isset($_POST['password'])) {

@@ -1,5 +1,6 @@
 <?php
 session_start();
+if ($_SESSION['kurum']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
@@ -83,5 +84,8 @@ if($mesaj) {
 <div class="span2"><a href="donorbulma.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
 </div>
 <?php
+} else {
+	header("Location:kurum_login.php");
+}
 	include_once("layout/_footer.php");
 ?>

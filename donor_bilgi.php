@@ -1,5 +1,6 @@
 <?php
 session_start();
+if ($_SESSION['kurum'] || $_SESSION['admin']) {
 include('layout/_head.php');
 include('layout/_header.php');
 include_once('config.php');
@@ -98,5 +99,8 @@ try {
 </table>
 <div class="span2"><a href="donorbulma.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
 <?php
+} else {
+	header("Location:login.php");
+}
 	include_once("layout/_footer.php");
 ?>
