@@ -12,6 +12,7 @@ try {
 		$role = "SELECT * FROM roles";
 		$admin = "SELECT * FROM admins";
 		$request = "SELECT * FROM donor_requests";
+		$blood_making = "SELECT * FROM blood_makings";
 		
 		$k_sayisi = $db->prepare($kurum);
 		$k_b_sayisi = $db->prepare($kurum_bekleyen);
@@ -20,6 +21,7 @@ try {
 		$r_sayisi = $db->prepare($role);
 		$a_sayisi = $db->prepare($admin);
 		$req_sayisi = $db->prepare($request);
+		$making_sayisi = $db->prepare($blood_making);
 		
 		$k_sayisi->execute();
 		$k_b_sayisi->execute();
@@ -28,6 +30,7 @@ try {
 		$r_sayisi->execute();
 		$a_sayisi->execute();
 		$req_sayisi->execute();
+		$making_sayisi->execute();
 		
 		//~ echo $k_sayisi->rowCount(); 
 		//~ echo $d_sayisi->rowCount(); 
@@ -93,9 +96,9 @@ try {
     </tr>-->
     <tr>
       <td>Kayıtlı Kan Verme</td>
-      <td>Kayıtlı Kan verme sayısı</td>
+      <td><?=$making_sayisi->rowCount()?></td>
       <td>
-        <a href="/admin/bloodmakings">Listele</a>
+        
       </td>
     </tr>
   </tbody>

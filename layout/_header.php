@@ -5,13 +5,13 @@
       </button>
       <a class="brand" href="./index.php">Kan Merkezi</a>
       <div class="nav-collapse collapse">
-	<ul class="nav">
+	<!--<ul class="nav">
 	  <li class="">
 	  <a href="./index.php">Anasayfa</a>
 	  </li>
 	  <li><a href="#">Hakkımızda</a></li>
 	  <li><a href="#">İletişim</a></li>
-	  </ul>
+	  </ul>-->
 	  <ul class="nav pull-right">
 	  <li>
 <?php
@@ -66,9 +66,9 @@
         <b class="caret"></b>
       </a>
     <ul class="dropdown-menu">
-      <li><a href="donor_login.php">Donör Girişi</a></li>
-      <li><a href="kurum_login.php">Kurum Girişi</a></li>
-      <li><a href="login.php">Yönetici Girişi</a></li>
+		<li><a href="login.php">Yönetici Girişi</a></li>
+		<li><a href="kurum_login.php">Kurum Girişi</a></li>
+		<li><a href="donor_login.php">Donör Girişi</a></li>
     </ul>
   </li>
 <?php } ?>

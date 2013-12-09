@@ -150,7 +150,7 @@ if ($kan_id != 0) {
 			echo "<td>".$row['ilce_adi']."</td>";
 			echo "<td>".$row['blood_making_date']."</td>";
 			echo "<td>".'<a href="donor_bilgi.php?donor_id='.$row['id'].'"><i class="icon-search"></i></a>'."</td>";
-			echo "<td>".'<a href="donor_bilgi.php?donor_id='.$row['id'].'"><i class="icon-trash"></i></a>'."</td>";
+			echo "<td>".'<a href="kanvermekayit.php?donor_id='.$row['id'].'"><i class="icon-trash"></i></a>'."</td>";
 			echo "</tr>";
 		}
 	} catch (PDOException $e) {

@@ -36,28 +36,6 @@ try {
 		foreach($listele3 as $row) {
 			$y_ilce = $row['ilce_adi'];
 		}
-		
-		//~ $mmail = $_SESSION['kurum'];
-			//~ //$db = new PDO($dsn, $dbuser, $dbpassword, array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8"));	
-			//~ $sql = "SELECT * FROM institutes WHERE email='$mmail'";
-			//~ $yap5 = $db->query($sql);
-						//~ 
-			//~ foreach($yap5 as $row) {
-				//~ $kurumadi = $row['name'];
-				//~ $kurum_id = $row['id']
-			//~ }
-			
-		//~ if ($_POST['update'] == 1){
-			//~ 
-			//~ $making = "INSERT INTO blood_makings (donor_id, institute_id, blood_making_date, comment) VALUES (?, ?, ?, ?)";
-			//~ $veri = array($donor_id, $kurum_id, $_POST['tarih'], $_POST['comment']);
-			//~ $yap = $db->prepare($making);
-			//~ $yap->execute($veri);
-						//~ 
-			//~ $mesaj = "Başarılı bir şekilde eklediniz";
-		//~ 
-		//~ }
-		
 	} catch (PDOException $e) {
 		echo "Connection failed: " . $e->getMessage();
 	}
@@ -119,54 +97,6 @@ try {
     </tbody>
 </table>
 <div class="span2"><a href="donorbulma.php" class="btn btn-primary"><i class="icon-arrow-left"></i> Geri </a></div>
-
-<div class="span6 offset1 main">
-<form class="form-horizontal" action="donor_bilgi.php?donor_id=<?=$donor_id?>" method="post">
-<fieldset>
-<legend>Kan Verme Kayıt İşlemi</legend>
-<!-- Text input-->
-<?php
-if($mesaj) {
-	echo "<p><center class='alert alert-success'>{$mesaj}</center></p>";
-}
-?>
-<div class="control-group">
-  <label class="control-label" for="kurumrol">Kurum(*) :</label>
-  <div class="controls">
-    <input id="kurum" name="kurum" type="text" value="<?=$kurumadi?>" class="input-large">
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label" for="kurumrol">Donör(*) :</label>
-  <div class="controls">
-    <input id="ad" name="donor" type="text" value="<?=$ad." ".$soyad?>" class="input-large">
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label" for="kurumrol">Kan Verme Tarihi(*) :</label>
-  <div class="controls">
-    <input id="tarih" name="tarih" type="date" placeholder="" class="input-large">
-  </div>
-</div>
-<div class="control-group">
-  <label class="control-label" for="comment">Açıklama Ekleyebilirsiniz </label>
-  <div class="controls">                     
-    <textarea rows="4" id="comment" name="comment"></textarea>
-  </div>
-</div>
-<input type="hidden" name="update" value="1" />
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label" for="rolekle"></label>
-  <div class="controls">
-    <button id="rolekle" name="rolekle" class="btn btn-primary">Kaydet</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-</div>
-
 <?php
 	include_once("layout/_footer.php");
 ?>
